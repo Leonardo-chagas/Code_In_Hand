@@ -6,6 +6,8 @@ public class GameManager : MonoBehaviour
 {
     [HideInInspector] public static GameManager instance;
     public AudioSettingsScriptable audioSettings;
+
+    public int[] cardsToDraw;
     void Start()
     {
         if(instance == null){

@@ -5,6 +5,9 @@ using UnityEngine;
 public class DragDrop : MonoBehaviour
 {
     private bool isDragging = false;
+    private GameObject startParent;
+    private Vector3 startPosition;
+    private bool isOverDropZone;
     
     void Start()
     {
@@ -21,9 +24,11 @@ public class DragDrop : MonoBehaviour
 
     public void StartDrag(){
         isDragging = true;
+        startParent = transform.parent.gameObject;
     }
 
     public void StopDrag(){
         isDragging = false;
+
     }
 }
