@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public AudioSettingsScriptable audioSettings;
 
     public int[] cardsToDraw;
+    public GameObject challenge;
     void Start()
     {
         if(instance == null){
