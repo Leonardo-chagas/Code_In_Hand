@@ -9,6 +9,7 @@ public class ZoomCard : MonoBehaviour
     private Transform startParent;
     private GameObject zoomCard;
     private GameObject zoomCardClone;
+    float targetHeight = 1080;
 
     void Awake()
     {
@@ -33,7 +34,8 @@ public class ZoomCard : MonoBehaviour
             print("adicionou carta");
             zoomCardClone = Instantiate(zoomCard);
             zoomCardClone.transform.SetParent(mainCanvas, false);
-            zoomCardClone.transform.position = new Vector3(transform.position.x, transform.position.y + 150, transform.position.z);
+            float height = Screen.height/targetHeight;
+            zoomCardClone.transform.position = new Vector3(transform.position.x, transform.position.y + 450*height, transform.position.z);
             zoomCardClone.transform.localScale = new Vector3(zoomCard.transform.localScale.x*2, zoomCard.transform.localScale.y*2, zoomCard.transform.localScale.z);
         }
     }
