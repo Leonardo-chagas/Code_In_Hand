@@ -6,7 +6,7 @@ line: statement | ifBlock;
 
 statement: (assignment) ';';
 
-ifBlock: 'if' statement block ('else' block)?;
+ifBlock: 'if' expression block ('else' block)?;
 
 printCall: 'print(' expression ')';
 
@@ -24,9 +24,9 @@ expression
 multOp: '*' | '/' | '%';
 addOp: '+' | '-';
 compareOp: '==' | '!=' | '>' | '<' | '>=' | '<=';
-boolOp: BOOL_OPERATOR;
+boolOp: 'and' | 'or';
 
-BOOL_OPERATOR: 'and' | 'or' | 'xor';
+//BOOL_OPERATOR: 'and' | 'or';
 
 constant: INTEGER | FLOAT | STRING | BOOL | NULL;
 
