@@ -7,10 +7,12 @@ using Antlr4.Runtime;
 public class RunCode : MonoBehaviour
 {
     private string path;
+    private Transform dropArea;
     
     void Start()
     {
         path = "Assets/Resources/programm.txt";
+        dropArea = GameObject.Find("DropArea").transform;
     }
 
     public void TestFile(){
@@ -21,6 +23,7 @@ public class RunCode : MonoBehaviour
     }
 
     public void Run(){
+        WriteProgramm();
         var fileContents = new StreamReader(path);
 
         var inputStream = new AntlrInputStream(fileContents.ReadToEnd());
@@ -34,7 +37,11 @@ public class RunCode : MonoBehaviour
 
     private void WriteProgramm(){
         var fileContents = new StreamWriter(path);
-        fileContents.Write("mudei o texto do arquivo\n é isso aí");
+        fileContents.Write("");
+
+        foreach(GameObject obj in dropArea){
+            
+        }
         fileContents.Close();
     }
 }

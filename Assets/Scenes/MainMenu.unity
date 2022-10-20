@@ -4829,7 +4829,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  challengeCard: {fileID: 2647638955510174750, guid: 6b4167d19a1229d4da8cc57947e6dc1e, type: 3}
+  challengeCard: {fileID: 7257545027291945624, guid: 8795af89694b54141a4a5a12afb0b65f, type: 3}
   cardsToTake: 010000000200000003000000
   challengePosition: {fileID: 688658367}
 --- !u!114 &1900571374
