@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class DragDrop : MonoBehaviour
 {
@@ -9,12 +10,20 @@ public class DragDrop : MonoBehaviour
     private Vector3 startPosition;
     private Transform dropArea;
     private Transform dropZone;
+    private TMP_Text text;
+    private string startText;
     
     void Start()
     {
         //startPosition = transform.position;
         dropArea = GameObject.Find("DropArea").transform;
         StartCoroutine("DefineStart");
+        foreach(Transform child in transform){
+            if(child.name == "type"){
+                text = child.gameObject.GetComponent<TMP_Text>();
+                startText = text.text;
+            }
+        }
     }
 
     IEnumerator DefineStart(){
@@ -35,6 +44,7 @@ public class DragDrop : MonoBehaviour
         isDragging = true;
         if(transform.parent != startParent){
             Dropzone.instance.CardRemoved(transform);
+            text.text = startText;
             print("passou");
         }
         //startPosition = transform.position;
@@ -47,6 +57,7 @@ public class DragDrop : MonoBehaviour
             transform.SetParent(dropArea, false);
             transform.position = dropZone.position;
             Dropzone.instance.CardAdded(dropZone);
+            gameObject.GetComponent<IPlaceable>()?.PlaceCard();
         }
         else{
             transform.position = startPosition;
