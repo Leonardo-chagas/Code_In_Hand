@@ -16,7 +16,10 @@ public class RunCode : MonoBehaviour
     }
 
     public void TestFile(){
-        WriteProgramm();
+        var fileText = new StreamWriter(path);
+        fileText.Write("texto extra");
+        fileText.Write(" mais texto");
+        fileText.Close();
         var fileContents = new StreamReader(path);
         Debug.Log(fileContents.ReadToEnd());
         fileContents.Close();
@@ -36,12 +39,12 @@ public class RunCode : MonoBehaviour
     }
 
     private void WriteProgramm(){
-        var fileContents = new StreamWriter(path);
-        fileContents.Write("");
+        var writer = new StreamWriter(path);
+        writer.Write("");
 
-        foreach(GameObject obj in dropArea){
-            
+        foreach(Transform obj in dropArea){
+            obj.gameObject.GetComponent<IWritable>()?.WriteCode(writer);
         }
-        fileContents.Close();
+        writer.Close();
     }
 }

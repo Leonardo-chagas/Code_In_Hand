@@ -6,9 +6,11 @@ line: statement | ifBlock;
 
 statement: (assignment) ';';
 
-ifBlock: 'if' expression block ('else' block)?;
+//ifBlock: 'if' expression block ('else' block)?;
+ifBlock: 'IF' expression block ('ELSE' block)?;
 
-printCall: 'print(' expression ')';
+//printCall: 'print(' expression ')';
+printCall: 'PRINT' expression ;
 
 expression
     : constant                              #constantExpression
