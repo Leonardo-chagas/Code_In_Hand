@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 5094544435533817411}
   - component: {fileID: 8656370380259108054}
   - component: {fileID: 5367318596403142877}
+  - component: {fileID: 312373444176929650}
   m_Layer: 5
   m_Name: var card
   m_TagString: Untagged
@@ -543,6 +544,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputCard: {fileID: 8977067195568467312, guid: 7dbabaad53e1a764ca328f006c222f35, type: 3}
+--- !u!114 &312373444176929650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8782711046003760660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b17cb372cfc49cb4ea8dfc73d4ec367f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appendLeft: 
+  appendRight: 
 --- !u!1 &8782711046068389827
 GameObject:
   m_ObjectHideFlags: 0

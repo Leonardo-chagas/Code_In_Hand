@@ -2286,8 +2286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cards: []
   challengeCard: {fileID: 7850501524673346558, guid: 379477e187fb13a409d226f1eb94cf98, type: 3}
-  cardsToTake: 000000000300000003000000
   challengePosition: {fileID: 688658367}
 --- !u!114 &758923235
 MonoBehaviour:
@@ -4288,7 +4288,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioSettings: {fileID: 11400000, guid: 9e2206691f0c1db40970f8680be3bb80, type: 2}
-  cardsToDraw: 
   challenge: {fileID: 0}
 --- !u!1 &1879448858
 GameObject:
@@ -4829,8 +4828,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cards:
+  - cardName: int card
+    cardAmount: 1
+  - cardName: float card
+    cardAmount: 1
+  - cardName: string card
+    cardAmount: 1
+  - cardName: print card
+    cardAmount: 1
   challengeCard: {fileID: 7257545027291945624, guid: 8795af89694b54141a4a5a12afb0b65f, type: 3}
-  cardsToTake: 010000000200000003000000
   challengePosition: {fileID: 688658367}
 --- !u!114 &1900571374
 MonoBehaviour:
@@ -5692,8 +5699,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cards: []
   challengeCard: {fileID: 5089268981561326631, guid: a0a91ac1dc53d284fb7c43251a22a70b, type: 3}
-  cardsToTake: 020000000400000000000000
   challengePosition: {fileID: 688658367}
 --- !u!114 &2132378123
 MonoBehaviour:

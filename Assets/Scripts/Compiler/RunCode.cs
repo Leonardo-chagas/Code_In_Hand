@@ -29,6 +29,7 @@ public class RunCode : MonoBehaviour
         WriteProgramm();
         var fileContents = new StreamReader(path);
 
+        //verificação da sintaxe
         var inputStream = new AntlrInputStream(fileContents.ReadToEnd());
         var cardCodeLexer = new CardCodeLexer(inputStream);
         var commonTokenStream = new CommonTokenStream(cardCodeLexer);
@@ -36,6 +37,15 @@ public class RunCode : MonoBehaviour
         var cardCodeContext = CardCodeParser.program();
         var visitor = new CardCodeVisitor();
         visitor.Visit(cardCodeContext);
+
+        //verificação da estrutura
+        ChallengeCard.instance.CheckCode();
+        if(ChallengeCard.instance.hasStructure){
+
+        }
+        else{
+            
+        }
     }
 
     private void WriteProgramm(){

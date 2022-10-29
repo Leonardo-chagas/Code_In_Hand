@@ -296,6 +296,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2530610107205561526}
+  - component: {fileID: 5948125710242706940}
   m_Layer: 5
   m_Name: easy challenge 1
   m_TagString: Untagged
@@ -327,6 +328,21 @@ RectTransform:
   m_AnchoredPosition: {x: -596, y: 0}
   m_SizeDelta: {x: 82.5, y: 112.5}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5948125710242706940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7257545027291945624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819f97a4a0c3a18418f6f788cfa16cc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lines:
+  - PRINT"Hello World"
+  hasStructure: 0
 --- !u!1 &8046196183343898287
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,11 +8,17 @@ using UnityEngine.EventSystems;
 
 public class ChallengeSelect : MonoBehaviour
 {
+    [Serializable]
+    public struct Cards{
+        public string cardName;
+        public int cardAmount;
+    }
+    public Cards[] cards;
     public GameObject challengeCard;
-    public int[] cardsToTake;
     public Transform challengePosition;
     Button button;
     EventTrigger eventTrigger;
+    public Dictionary<string, int> cardsToTake = new Dictionary<string, int>();
     
     void Start(){
         button = GetComponent<Button>();
@@ -21,6 +28,10 @@ public class ChallengeSelect : MonoBehaviour
         entry.eventID = EventTriggerType.PointerEnter;
         entry.callback.AddListener((eventData) => {ShowChallenge();});
         eventTrigger.triggers.Add(entry);
+
+        foreach(Cards card in cards){
+            cardsToTake.Add(card.cardName, card.cardAmount);
+        }
     }
     public void SelectChallenge(){
         GameManager.instance.challenge = challengeCard;

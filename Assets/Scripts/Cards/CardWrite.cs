@@ -7,13 +7,13 @@ using TMPro;
 public class CardWrite : MonoBehaviour, IWritable
 {
     private string cardText;
-    private string path;
+    /* private string path; */
     public string appendLeft = "";
     public string appendRight = "";
-    void Start()
+    /* void Start()
     {
         path = "Assets/Resources/programm.txt";
-    }
+    } */
 
     public void WriteCode(StreamWriter writer){
         foreach(Transform child in transform){

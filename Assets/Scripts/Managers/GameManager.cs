@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public static GameManager instance;
     public AudioSettingsScriptable audioSettings;
 
-    public int[] cardsToDraw;
+    public Dictionary<string, int> cardsToDraw = new Dictionary<string, int>();
     public GameObject challenge;
     void Start()
     {
