@@ -1,1 +1,1 @@
-PRINT"hello world​"
+PRINT1.29

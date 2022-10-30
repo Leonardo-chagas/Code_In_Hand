@@ -7,7 +7,7 @@ public class Dropzone : MonoBehaviour
     private Vector2 startPosition;
     public static Dropzone instance;
     public GameObject dropzone;
-    float space = 50f;
+    float space = 120f;
     void Start()
     {
         instance = this;

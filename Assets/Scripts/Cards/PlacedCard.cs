@@ -14,7 +14,7 @@ public class PlacedCard : MonoBehaviour, IPlaceable
 
     void Awake()
     {
-        bigCardArea = GameObject.Find("BigCardArea").transform;
+        bigCardArea = GameObject.Find("BigCardArea").transform.GetChild(0);
         cardPoint = bigCardArea.GetChild(1);
         foreach(Transform child in transform){
             if(child.name == "type"){

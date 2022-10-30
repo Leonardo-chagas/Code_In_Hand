@@ -21,7 +21,6 @@ public class CardWrite : MonoBehaviour, IWritable
                 cardText = child.gameObject.GetComponent<TMP_Text>().text;
             }
         }
-        
-        writer.Write(appendLeft + cardText + appendRight);
+        writer.Write(appendLeft + cardText.Replace("\u200B", "") + appendRight);
     }
 }

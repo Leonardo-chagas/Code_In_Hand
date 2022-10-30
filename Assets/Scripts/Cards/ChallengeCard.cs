@@ -25,8 +25,15 @@ public class ChallengeCard : MonoBehaviour
         string line;
         int cont = 1;
         while((line = reader.ReadLine()) != null){
+            /* print(line);
+            foreach(string key in structure.Keys){
+                //print(key == line);
+                print(key + "=" + line);
+            } */
+            
             if(structure.ContainsKey(line)){
                 structure[line] = cont;
+                print("achou linha");
             }
             cont++;
         }
@@ -46,7 +53,14 @@ public class ChallengeCard : MonoBehaviour
             }
             if(!error){
                 hasStructure = true;
+                print("estrutura está correta");
             }
+            else{
+                print("estrutura está errada");
+            }
+        }
+        else{
+            print("estrutura está errada, possui valor 0");
         }
     }
 }

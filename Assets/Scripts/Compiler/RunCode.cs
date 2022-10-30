@@ -8,6 +8,8 @@ public class RunCode : MonoBehaviour
 {
     private string path;
     private Transform dropArea;
+    public GameObject winScreen;
+    public GameObject loseScreen;
     
     void Start()
     {
@@ -41,10 +43,10 @@ public class RunCode : MonoBehaviour
         //verificação da estrutura
         ChallengeCard.instance.CheckCode();
         if(ChallengeCard.instance.hasStructure){
-
+            winScreen.SetActive(true);
         }
         else{
-            
+            loseScreen.SetActive(true);
         }
     }
 
