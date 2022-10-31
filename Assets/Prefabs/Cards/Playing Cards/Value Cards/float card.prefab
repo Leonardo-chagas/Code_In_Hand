@@ -358,6 +358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a587b93beeccf4ab779daa47664b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDragging: 0
 --- !u!61 &538181676245211596
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -409,6 +410,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputCard: {fileID: 8977067195568467312, guid: 7dbabaad53e1a764ca328f006c222f35, type: 3}
+  inputField: {fileID: 0}
+  contentType: 3
 --- !u!114 &4123089047429654322
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -16,7 +16,7 @@ public class InputCard : MonoBehaviour
     {
         borders.color = color;
         text.color = color;
-        bigCardArea = GameObject.Find("BigCardArea");
+        bigCardArea = GameObject.Find("BigCardArea").transform.GetChild(0).gameObject;
     }
 
     public void ConfirmText(){

@@ -11,9 +11,18 @@ public class PlacedCard : MonoBehaviour, IPlaceable
     private TMP_Text cardText;
     private Color color;
     public GameObject inputCard;
+    public TMP_InputField inputField;
+    /* public enum ContentType {
+        Standard,
+        IntegerNumber,
+        DecimalNumber
+    } */
+    public TMP_InputField.ContentType contentType;
 
     void Awake()
     {
+        inputField = inputCard.transform.GetChild(2).GetComponent<TMP_InputField>();
+        inputField.contentType = contentType;
         bigCardArea = GameObject.Find("BigCardArea").transform.GetChild(0);
         cardPoint = bigCardArea.GetChild(1);
         foreach(Transform child in transform){

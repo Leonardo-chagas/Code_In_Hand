@@ -5,7 +5,7 @@ using TMPro;
 
 public class DragDrop : MonoBehaviour
 {
-    private bool isDragging = false;
+    [HideInInspector] public bool isDragging = false;
     private Transform startParent;
     private Vector3 startPosition;
     private Transform dropArea;
