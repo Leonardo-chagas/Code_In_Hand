@@ -17,6 +17,15 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return null;
     }
 
+    public override object? VisitPrintCall([NotNull] CardCodeParser.PrintCallContext context)
+    {
+        /* if(context.expression() == null){
+            Error("Nenhum argumento foi repassado para o print");
+        } */
+
+        return null;
+    }
+
     public override object? VisitConstant([NotNull] CardCodeParser.ConstantContext context)
     {
         if(context.INTEGER() is {} i){
@@ -307,4 +316,8 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
     }
 
     public bool IsFalse(object? value) => !IsTrue(value);
+
+    private void Error(string error){
+        throw new Exception(error);
+    }
 }

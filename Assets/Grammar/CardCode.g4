@@ -2,7 +2,7 @@ grammar CardCode;
 
 program: line* EOF;
 
-line: statement | ifBlock;
+line: statement | printCall | ifBlock;
 
 statement: (assignment) ';';
 

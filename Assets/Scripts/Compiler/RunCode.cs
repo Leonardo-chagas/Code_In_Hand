@@ -35,18 +35,24 @@ public class RunCode : MonoBehaviour
         var inputStream = new AntlrInputStream(fileContents.ReadToEnd());
         var cardCodeLexer = new CardCodeLexer(inputStream);
         var commonTokenStream = new CommonTokenStream(cardCodeLexer);
-        var CardCodeParser = new CardCodeParser(commonTokenStream);
-        var cardCodeContext = CardCodeParser.program();
-        var visitor = new CardCodeVisitor();
-        visitor.Visit(cardCodeContext);
+        var cardCodeParser = new CardCodeParser(commonTokenStream);
+        cardCodeParser.AddErrorListener(new ErrorListener());
+        if(cardCodeParser.NumberOfSyntaxErrors > 0){
 
-        //verificação da estrutura
-        ChallengeCard.instance.CheckCode();
-        if(ChallengeCard.instance.hasStructure){
-            winScreen.SetActive(true);
         }
         else{
-            loseScreen.SetActive(true);
+            var cardCodeContext = cardCodeParser.program();
+            var visitor = new CardCodeVisitor();
+            visitor.Visit(cardCodeContext);
+
+            //verificação da estrutura
+            ChallengeCard.instance.CheckCode();
+            if(ChallengeCard.instance.hasStructure){
+                winScreen.SetActive(true);
+            }
+            else{
+                loseScreen.SetActive(true);
+            }
         }
     }
 

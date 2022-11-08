@@ -6,6 +6,7 @@ using UnityEngine;
 public class ChallengeCard : MonoBehaviour
 {
     private string path;
+    private string dataPath;
     public static ChallengeCard instance;
     public string[] lines;
     [HideInInspector] public bool hasStructure;
@@ -14,6 +15,7 @@ public class ChallengeCard : MonoBehaviour
     {
         instance = this;
         path = "Assets/Resources/programm.txt";
+        dataPath = "Assets/Resources/data.txt";
         foreach(string str in lines){
             structure.Add(str, 0);
         }
@@ -56,10 +58,12 @@ public class ChallengeCard : MonoBehaviour
                 print("estrutura está correta");
             }
             else{
+                hasStructure = false;
                 print("estrutura está errada");
             }
         }
         else{
+            hasStructure = false;
             print("estrutura está errada, possui valor 0");
         }
     }
