@@ -9,6 +9,7 @@ public class ChallengeCard : MonoBehaviour
     private string dataPath;
     public static ChallengeCard instance;
     public string[] lines;
+    public int challengeIndex;
     [HideInInspector] public bool hasStructure;
     Dictionary<string, int> structure = new Dictionary<string, int>();
     void Start()

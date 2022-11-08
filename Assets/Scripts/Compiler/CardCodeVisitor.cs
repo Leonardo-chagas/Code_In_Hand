@@ -44,7 +44,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return null;
         }
         //ocorreu erro: não reconheceu o tipo
-        return null;
+        throw new Exception("tipo não reconhecido");
     }
 
     public override object? VisitIdentifierExpression([NotNull] CardCodeParser.IdentifierExpressionContext context)
@@ -53,7 +53,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
         if(!Variables.ContainsKey(varName)){
             //ocorreu erro: variável não definida
-            throw new Exception($"variable {varName} is not defined");
+            throw new Exception($"variável {varName} não foi definida");
         }
         
         return Variables[varName];
@@ -69,7 +69,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return op switch{
             "+" => Add(left, right),
             "-" => Subtract(left, right),
-            _ => throw new NotImplementedException()
+            _ => throw new Exception("operador não foi implementado")
         };
     }
 
@@ -86,7 +86,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return $"{left}{right}";
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot add these values");
+        throw new Exception($"não foi possível adicionar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private object? Subtract(object? left, object? right){
@@ -103,7 +103,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         } */
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot subtract these values");
+        throw new Exception($"não foi possível subtrair valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     public override object? VisitIfBlock([NotNull] CardCodeParser.IfBlockContext context)
@@ -131,7 +131,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             "<" => LessThan(left, right),
             ">=" => GreaterThanOrEqual(left, right),
             "<=" => LessThanOrEqual(left, right),
-            _ => throw new Exception("not implemented")
+            _ => throw new Exception("operador não foi implementado")
         };
     }
 
@@ -146,7 +146,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             "*" => Multiply(left, right),
             "/" => Divide(left, right),
             "%" => Remainder(left, right),
-            _ => throw new Exception("not implemented")
+            _ => throw new Exception("operador não foi implementado")
         };
     }
 
@@ -160,7 +160,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return op switch{
             "and" => AndOperation(left, right),
             "or" => OrOperation(left, right),
-            _ => throw new Exception("not implemented")
+            _ => throw new Exception("operador não implementado")
         };
     }
 
@@ -169,7 +169,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return l && r;
         
         //ocorreu erro: valores de tipo inválido
-        throw new Exception("values of type invalid for this operation");
+        throw new Exception($"valores de tipo {left.GetType()} e {right.GetType()} são inválidos para esta operação");
     }
 
     private bool OrOperation(object? left, object? right){
@@ -177,7 +177,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return l || r;
         
         //ocorreu erro: valores de tipo inválido
-        throw new Exception("values of type invalid for this operation");
+        throw new Exception($"valores de tipo {left.GetType()} e {right.GetType()} são inválidos para esta operação");
     }
 
     private object? Multiply(object? left, object? right){
@@ -190,7 +190,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         if(left is float lFloat && right is int rInt)
             return lFloat * rInt;
         
-        throw new Exception("cannot add these values");
+        throw new Exception($"não foi possível multiplicar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private object? Divide(object? left, object? right){
@@ -203,7 +203,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         if(left is float lFloat && right is int rInt)
             return lFloat / rInt;
         
-        throw new Exception("cannot add these values");
+        throw new Exception($"não foi possível dividir valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private object? Remainder(object? left, object? right){
@@ -216,7 +216,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         if(left is float lFloat && right is int rInt)
             return lFloat % rInt;
         
-        throw new Exception("cannot add these values");
+        throw new Exception($"não foi possível achar o resto dos valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private bool IsEquals(object? left, object? right){
@@ -232,7 +232,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return left == right;
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot compare these values");
+        throw new Exception($"não foi possível comparar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private bool NotEquals(object? left, object? right){
@@ -248,7 +248,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return left != right;
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot compare these values");
+        throw new Exception($"não foi possível comparar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private bool GreaterThan(object? left, object? right){
@@ -262,7 +262,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return lFloat > rInt;
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot compare these values");
+        throw new Exception($"não foi possível comparar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private bool LessThan(object? left, object? right){
@@ -276,7 +276,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return lFloat < rInt;
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot compare these values");
+        throw new Exception($"não foi possível comparar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private bool GreaterThanOrEqual(object? left, object? right){
@@ -290,7 +290,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return lFloat >= rInt;
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot compare these values");
+        throw new Exception($"não foi possível comparar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private bool LessThanOrEqual(object? left, object? right){
@@ -304,7 +304,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return lFloat <= rInt;
         
         //ocorreu erro: não implementado
-        throw new Exception("Cannot compare these values");
+        throw new Exception($"não foi possível comparar valores de tipo {left.GetType()} e {right.GetType()}");
     }
 
     private bool IsTrue(object? value){
@@ -312,7 +312,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return b;
         }
         //ocorreu erro: valor não é booleano
-        throw new Exception("value is not boolean");
+        throw new Exception("valor não é booleano");
     }
 
     public bool IsFalse(object? value) => !IsTrue(value);
