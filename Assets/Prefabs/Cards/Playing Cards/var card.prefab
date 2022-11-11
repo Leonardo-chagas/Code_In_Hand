@@ -361,7 +361,7 @@ GameObject:
   - component: {fileID: 8656370380259108054}
   - component: {fileID: 5367318596403142877}
   - component: {fileID: 312373444176929650}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: var card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -493,6 +493,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a587b93beeccf4ab779daa47664b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDragging: 0
 --- !u!61 &5094544435533817411
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -544,6 +545,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputCard: {fileID: 8977067195568467312, guid: 7dbabaad53e1a764ca328f006c222f35, type: 3}
+  inputField: {fileID: 0}
+  contentType: 0
 --- !u!114 &312373444176929650
 MonoBehaviour:
   m_ObjectHideFlags: 0

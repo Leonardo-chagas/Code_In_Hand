@@ -10,6 +10,7 @@ public class DragDrop : MonoBehaviour
     private Vector3 startPosition;
     private Transform dropArea;
     private Transform dropZone;
+    private Transform dropZoneParent;
     private TMP_Text text;
     private string startText;
     
@@ -54,9 +55,9 @@ public class DragDrop : MonoBehaviour
     public void StopDrag(){
         isDragging = false;
         if(dropZone != null){
-            transform.SetParent(dropArea, false);
-            transform.position = dropZone.position;
-            Dropzone.instance.CardAdded(dropZone);
+            //transform.SetParent(dropZoneParent, false);
+            //transform.position = dropZone.position;
+            Dropzone.instance.CardAdded(transform, dropZone, dropZoneParent);
             gameObject.GetComponent<IPlaceable>()?.PlaceCard();
         }
         else{
@@ -68,12 +69,14 @@ public class DragDrop : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.CompareTag("dropzone")){
             dropZone = col.transform;
+            dropZoneParent = col.transform.parent;
         }
     }
 
     void OnTriggerExit2D(Collider2D col){
         if(col.gameObject.CompareTag("dropzone")){
             dropZone = null;
+            dropZoneParent = null;
         }
     }
 }

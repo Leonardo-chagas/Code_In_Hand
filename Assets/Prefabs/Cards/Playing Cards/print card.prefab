@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8241909637542819580}
   - component: {fileID: 5544998726339834985}
   - component: {fileID: 3766912203914088779}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: print card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,6 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a587b93beeccf4ab779daa47664b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDragging: 0
 --- !u!61 &8241909637542819580
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -331,6 +332,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b17cb372cfc49cb4ea8dfc73d4ec367f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  appendLeft: 
+  appendRight: 
 --- !u!1 &5561986360064759676
 GameObject:
   m_ObjectHideFlags: 0

@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 6845752918791927105}
   - component: {fileID: 7031227125177694164}
   - component: {fileID: 3038711210205583478}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: assign card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,6 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6a587b93beeccf4ab779daa47664b2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isDragging: 0
 --- !u!61 &6845752918791927105
 BoxCollider2D:
   m_ObjectHideFlags: 0

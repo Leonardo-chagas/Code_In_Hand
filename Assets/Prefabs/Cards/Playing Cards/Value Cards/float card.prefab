@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 4173410450011675481}
   - component: {fileID: 8202983773402235827}
   - component: {fileID: 4123089047429654322}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: float card
   m_TagString: Untagged
   m_Icon: {fileID: 0}
