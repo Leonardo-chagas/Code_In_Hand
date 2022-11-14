@@ -57,8 +57,8 @@ public class DragDrop : MonoBehaviour
         if(dropZone != null){
             //transform.SetParent(dropZoneParent, false);
             //transform.position = dropZone.position;
-            Dropzone.instance.CardAdded(transform, dropZone, dropZoneParent);
             gameObject.GetComponent<IPlaceable>()?.PlaceCard();
+            Dropzone.instance.CardAdded(transform, dropZone, dropZoneParent);
         }
         else{
             transform.position = startPosition;
