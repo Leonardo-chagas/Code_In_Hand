@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using Antlr4.Runtime.Misc;
@@ -19,9 +20,9 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
     public override object? VisitPrintCall([NotNull] CardCodeParser.PrintCallContext context)
     {
-        /* if(context.expression() == null){
-            Error("Nenhum argumento foi repassado para o print");
-        } */
+        using(var writer = File.AppendText("Assets/Resources/output.txt")){
+            writer.WriteLine(Visit(context.expression())?.ToString() ?? "");
+        }
 
         return null;
     }

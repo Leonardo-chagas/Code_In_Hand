@@ -3,23 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Antlr4.Runtime;
+using TMPro;
 
 public class RunCode : MonoBehaviour
 {
-    private string path;
-    private string dataPath;
+    private string path, dataPath, outputPath, logPath;
     private bool completedChallenge = false;
     private int challengeIndex;
     private int tries = 0;
     private Transform dropArea;
     public GameObject winScreen;
     public GameObject loseScreen;
+    public TMP_Text loseText;
     
     void Start()
     {
         challengeIndex = ChallengeCard.instance.challengeIndex;
         path = "Assets/Resources/programm.txt";
         dataPath = "Assets/Resources/data.txt";
+        outputPath = "Assets/Resources/output.txt";
+        logPath = "Assets/Resources/log.txt";
         dropArea = GameObject.Find("DropArea").transform;
     }
 
@@ -34,7 +37,8 @@ public class RunCode : MonoBehaviour
     }
 
     public void Run(){
-        WriteProgramm();
+        WriteProgram();
+        ResetFiles();
         var fileContents = new StreamReader(path);
 
         //verificação da sintaxe
@@ -43,8 +47,14 @@ public class RunCode : MonoBehaviour
         var commonTokenStream = new CommonTokenStream(cardCodeLexer);
         var cardCodeParser = new CardCodeParser(commonTokenStream);
         cardCodeParser.AddErrorListener(new ErrorListener());
-        if(cardCodeParser.NumberOfSyntaxErrors > 0){
 
+        if(cardCodeParser.NumberOfSyntaxErrors > 0){
+            StreamReader reader = new StreamReader(logPath);
+            string line = reader.ReadLine();
+            string error = reader.ReadLine();
+            loseScreen.SetActive(true);
+            loseText.text = $"Erro na linha {line}: {error}";
+            reader.Close();
         }
         else{
             var cardCodeContext = cardCodeParser.program();
@@ -58,14 +68,27 @@ public class RunCode : MonoBehaviour
                 completedChallenge = true;
             }
             else{
+                StreamReader reader = new StreamReader(logPath);
+                string error = reader.ReadToEnd();
                 loseScreen.SetActive(true);
+                loseText.text = error;
             }
         }
         LogData();
     }
 
+    private void ResetFiles(){
+        StreamWriter logWriter = new StreamWriter(logPath);
+        logWriter.Write("");
+        logWriter.Close();
+
+        StreamWriter outputWriter = new StreamWriter(outputPath);
+        outputWriter.Write("");
+        outputWriter.Close();
+    }
+
     //writes player data to file
-    void LogData(){
+    private void LogData(){
         var writer = File.ReadAllLines(dataPath);
         string line = writer[challengeIndex];
 
@@ -79,7 +102,7 @@ public class RunCode : MonoBehaviour
     }
 
     //writes the program based on cards placed
-    private void WriteProgramm(){
+    private void WriteProgram(){
         var writer = new StreamWriter(path);
         writer.Write("");
 

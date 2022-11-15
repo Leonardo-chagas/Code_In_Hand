@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class ChallengeCard : MonoBehaviour
 {
-    private string path;
-    private string dataPath;
+    private string path, dataPath, outputPath, logPath;
     public static ChallengeCard instance;
-    public string[] lines;
+    public string[] lines, expectedOutput;
+    public string expectation;
     public int challengeIndex;
     [HideInInspector] public bool hasStructure;
     Dictionary<string, int> structure = new Dictionary<string, int>();
@@ -17,6 +17,8 @@ public class ChallengeCard : MonoBehaviour
         instance = this;
         path = "Assets/Resources/programm.txt";
         dataPath = "Assets/Resources/data.txt";
+        outputPath = "Assets/Resources/output.txt";
+        logPath = "Assets/Resources/log.txt";
         foreach(string str in lines){
             structure.Add(str, 0);
         }
@@ -27,6 +29,7 @@ public class ChallengeCard : MonoBehaviour
         var reader = new StreamReader(path);
         string line;
         int cont = 1;
+
         while((line = reader.ReadLine()) != null){
             /* print(line);
             foreach(string key in structure.Keys){
@@ -54,18 +57,46 @@ public class ChallengeCard : MonoBehaviour
                     break;
                 }
             }
+            //estrutura do código está correta
             if(!error){
-                hasStructure = true;
                 print("estrutura está correta");
             }
+            //ordem da estrutura do código está incorreta
             else{
+                StreamWriter writer = new StreamWriter(logPath);
+                writer.Write("A estrutura do código não condiz com as especificações do desafio");
+                writer.Close();
                 hasStructure = false;
-                print("estrutura está errada");
+                return;
             }
         }
+        //estrutura do código está incorreta
         else{
+            StreamWriter writer = new StreamWriter(logPath);
+            writer.Write("A estrutura do código não condiz com as especificações do desafio");
+            writer.Close();
             hasStructure = false;
-            print("estrutura está errada, possui valor 0");
+            return;
+        }
+
+        bool hasOutput = false;
+        StreamReader outputReader = new StreamReader(outputPath);
+        string outputContent = outputReader.ReadToEnd();
+
+        foreach(string output in expectedOutput){
+            if(outputContent == output){
+                hasOutput = true;
+                break;
+            }
+        }
+
+        if(hasOutput){
+            hasStructure = true;
+        }
+        else{
+            StreamWriter writer = new StreamWriter(logPath);
+            writer.Write($"O desafio espera o resultado {expectation}, entretanto a saída recebida foi {outputContent}");
+            writer.Close();
         }
     }
 }

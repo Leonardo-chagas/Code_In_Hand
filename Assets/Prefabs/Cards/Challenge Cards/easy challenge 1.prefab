@@ -340,8 +340,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819f97a4a0c3a18418f6f788cfa16cc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lines:
-  - PRINT"Hello World"
+  lines: []
+  expectedOutput:
+  - Hello World
+  - hello world
+  expectation: Hello World
+  challengeIndex: 0
   hasStructure: 0
 --- !u!1 &8046196183343898287
 GameObject:
