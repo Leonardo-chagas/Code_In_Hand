@@ -2,10 +2,13 @@ using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ChallengeCard : MonoBehaviour
 {
     private string path, dataPath, outputPath, logPath;
+    private GameObject zoomCard;
+    private Transform zoomCardArea, cardPoint;
     public static ChallengeCard instance;
     public string[] lines, expectedOutput;
     public string expectation;
@@ -21,6 +24,18 @@ public class ChallengeCard : MonoBehaviour
         logPath = "Assets/Resources/log.txt";
         foreach(string str in lines){
             structure.Add(str, 0);
+        }
+
+        if(SceneManager.GetActiveScene().name == "Game"){
+            zoomCardArea = GameObject.Find("ChallengeZoomCardArea").transform.GetChild(0);
+            cardPoint = zoomCardArea.GetChild(1);
+            zoomCard = gameObject;
+            var components = zoomCard.GetComponents(typeof(Component));
+            foreach(Component comp in components){
+                if(!comp is RectTransform){
+                    Destroy(comp);
+                }
+            }
         }
     }
 
@@ -97,6 +112,18 @@ public class ChallengeCard : MonoBehaviour
             StreamWriter writer = new StreamWriter(logPath);
             writer.Write($"O desafio espera o resultado {expectation}, entretanto a saída recebida foi {outputContent}");
             writer.Close();
+        }
+    }
+
+    public void ZoomCard(){
+        if(SceneManager.GetActiveScene().name == "Game"){
+            zoomCardArea.gameObject.SetActive(true);
+            if(zoomCardArea.childCount < 3){
+                GameObject obj = Instantiate(zoomCard);
+                obj.transform.SetParent(zoomCardArea, false);
+                obj.transform.position = cardPoint.position;
+                obj.transform.localScale = new Vector3(3, 3, 1);
+            }
         }
     }
 }

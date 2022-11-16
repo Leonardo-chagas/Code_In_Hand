@@ -4837,7 +4837,7 @@ MonoBehaviour:
     cardAmount: 1
   - cardName: print card
     cardAmount: 1
-  challengeCard: {fileID: 7257545027291945624, guid: 8795af89694b54141a4a5a12afb0b65f, type: 3}
+  challengeCard: {fileID: 3507285733747217096, guid: 43914e2bf265eb84ba7286cb5c07d961, type: 3}
   challengePosition: {fileID: 688658367}
 --- !u!114 &1900571374
 MonoBehaviour:
@@ -5764,7 +5764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4809532652720296019, guid: c86c9ae3cd3be8e4a89676cd1a56e009, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4809532652720296019, guid: c86c9ae3cd3be8e4a89676cd1a56e009, type: 3}
       propertyPath: m_AnchorMax.x
