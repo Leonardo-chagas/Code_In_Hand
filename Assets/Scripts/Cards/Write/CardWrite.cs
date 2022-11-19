@@ -16,6 +16,9 @@ public class CardWrite : MonoBehaviour, IWritable
     } */
 
     public void WriteCode(StreamWriter writer){
+        if(appendLeft == "VAR"){
+            
+        }
         foreach(Transform child in transform){
             if(child.name == "type"){
                 cardText = child.gameObject.GetComponent<TMP_Text>().text;

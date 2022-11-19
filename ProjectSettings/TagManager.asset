@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - dropzone
+  - if card
   layers:
   - Default
   - TransparentFX
