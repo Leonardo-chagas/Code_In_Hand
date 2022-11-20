@@ -45,6 +45,13 @@ public class DragDrop : MonoBehaviour
         isDragging = true;
         if(transform.parent != startParent){
             Dropzone.instance.CardRemoved(transform);
+            //remove a variável do dicionário se a carta de variável for removida
+            if(startText == "VAR"){
+                GameManager.instance.variables[text.text] = GameManager.instance.variables[text.text] - 1;
+                if(GameManager.instance.variables[text.text] <= 0){
+                    GameManager.instance.variables.Remove(text.text);
+                }
+            }
             text.text = startText;
             print("passou");
         }

@@ -9,7 +9,8 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<string, int> cardsToDraw = new Dictionary<string, int>();
     public GameObject challenge;
-    public List<string> variables = new List<string>();
+    public Dictionary<string, int> variables = new Dictionary<string, int>();
+    public bool showAvailableVariables = false;
     void Start()
     {
         if(instance == null){

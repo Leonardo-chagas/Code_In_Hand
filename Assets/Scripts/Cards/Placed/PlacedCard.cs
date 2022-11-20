@@ -10,6 +10,7 @@ public class PlacedCard : MonoBehaviour, IPlaceable
     private Transform cardPoint;
     private TMP_Text cardText;
     private Color color;
+    public bool isVariable = false;
     public GameObject inputCard;
     public TMP_InputField inputField;
     /* public enum ContentType {
@@ -36,6 +37,10 @@ public class PlacedCard : MonoBehaviour, IPlaceable
     }
 
     public void PlaceCard(){
+        if(isVariable)
+            GameManager.instance.showAvailableVariables = true;
+        else
+            GameManager.instance.showAvailableVariables = false;
         bigCardArea.gameObject.SetActive(true);
         GameObject obj = Instantiate(inputCard);
         obj.transform.SetParent(cardPoint, false);

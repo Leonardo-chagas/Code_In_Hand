@@ -9,15 +9,11 @@ public class DropzoneLife : MonoBehaviour
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
+        StartCoroutine("Check");
     }
 
-    
-    void Update()
-    {
-        Check();
-    }
-
-    private void Check(){
+    private IEnumerator Check(){
+        yield return new WaitForSeconds(0.3f);
         Vector2 pos = transform.position;
         
         int mask = 1 << LayerMask.NameToLayer("Dropzone");
@@ -30,5 +26,7 @@ public class DropzoneLife : MonoBehaviour
         if(checkDropLeft.collider && !checkCardsRight.collider){
             Destroy(gameObject);
         }
+
+        StartCoroutine("Check");
     }
 }

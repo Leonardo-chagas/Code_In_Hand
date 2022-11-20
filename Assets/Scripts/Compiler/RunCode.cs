@@ -37,6 +37,8 @@ public class RunCode : MonoBehaviour
     }
 
     public void Run(){
+        //limpar dicionário?
+        //GameManager.instance.variables.Clear();
         WriteProgram();
         ResetFiles();
         var fileContents = new StreamReader(path);
@@ -94,6 +96,7 @@ public class RunCode : MonoBehaviour
 
         string[] currentLine = line.Split("|");
         if(currentLine[1] == "false"){
+            print("logou data");
             tries++;
             string completed = completedChallenge ? "true" : "false";
             string newLine = tries.ToString() + "|" + completed;

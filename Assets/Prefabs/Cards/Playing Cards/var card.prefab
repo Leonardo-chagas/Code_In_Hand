@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d60b5019d0d02946971d501ceb1c850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isVariable: 1
   inputCard: {fileID: 8977067195568467312, guid: 7dbabaad53e1a764ca328f006c222f35, type: 3}
   inputField: {fileID: 0}
   contentType: 0
@@ -561,6 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appendLeft: 
   appendRight: 
+  isVariable: 1
 --- !u!1 &8782711046068389827
 GameObject:
   m_ObjectHideFlags: 0
