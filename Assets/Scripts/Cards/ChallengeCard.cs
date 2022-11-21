@@ -97,6 +97,7 @@ public class ChallengeCard : MonoBehaviour
         bool hasOutput = false;
         StreamReader outputReader = new StreamReader(outputPath);
         string outputContent = outputReader.ReadToEnd();
+        outputContent = outputContent.TrimEnd();
 
         foreach(string output in expectedOutput){
             if(outputContent == output){

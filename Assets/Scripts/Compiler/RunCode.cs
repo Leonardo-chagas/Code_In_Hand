@@ -1,3 +1,4 @@
+using System.Linq;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -78,6 +79,7 @@ public class RunCode : MonoBehaviour
         }
         LogData();
     }
+
 
     private void ResetFiles(){
         StreamWriter logWriter = new StreamWriter(logPath);
