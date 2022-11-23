@@ -1,1 +1,1 @@
-PRINT2
+PRINT"oi"2

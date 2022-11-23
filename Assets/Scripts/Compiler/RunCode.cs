@@ -25,6 +25,7 @@ public class RunCode : MonoBehaviour
         outputPath = "Assets/Resources/output.txt";
         logPath = "Assets/Resources/log.txt";
         dropArea = GameObject.Find("DropArea").transform;
+        GameManager.instance.variables.Clear();
     }
 
     public void TestFile(){
