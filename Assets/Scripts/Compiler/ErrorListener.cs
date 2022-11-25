@@ -4,14 +4,12 @@ using UnityEngine;
 using Antlr4.Runtime;
 using System.IO;
 
-public class ErrorListener : BaseErrorListener
+public class ErrorListener
 {
-    public override void SyntaxError(TextWriter output, IRecognizer recognizer, IToken offendingSymbol, int line, int charPositionInLine, string msg, RecognitionException e)
-    {
+    public void HandleError(int line, string error){
         using(var writer = File.AppendText("Assets/Resources/log.txt")){
             writer.WriteLine(line);
-            writer.WriteLine(output);
+            writer.WriteLine(error);
         }
-        base.SyntaxError(output, recognizer, offendingSymbol, line, charPositionInLine, msg, e);
     }
 }

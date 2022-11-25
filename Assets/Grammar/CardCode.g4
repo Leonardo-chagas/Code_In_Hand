@@ -10,7 +10,7 @@ statement: (assignment) ';';
 ifBlock: 'IF' expression block ('ELSE' block)?;
 
 //printCall: 'print(' expression ')';
-printCall: 'PRINT' expression ;
+printCall: 'PRINT' expression ';';
 
 expression
     : constant                              #constantExpression

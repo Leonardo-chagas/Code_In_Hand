@@ -16,6 +16,8 @@ public class RunCode : MonoBehaviour
     public GameObject winScreen;
     public GameObject loseScreen;
     public TMP_Text loseText;
+
+    public ErrorListener errorListener = new ErrorListener();
     
     void Start()
     {
@@ -28,15 +30,6 @@ public class RunCode : MonoBehaviour
         GameManager.instance.variables.Clear();
     }
 
-    public void TestFile(){
-        var fileText = new StreamWriter(path);
-        fileText.Write("texto extra");
-        fileText.Write(" mais texto");
-        fileText.Close();
-        var fileContents = new StreamReader(path);
-        Debug.Log(fileContents.ReadToEnd());
-        fileContents.Close();
-    }
 
     public void Run(){
         //limpar dicionário?
@@ -50,9 +43,14 @@ public class RunCode : MonoBehaviour
         var cardCodeLexer = new CardCodeLexer(inputStream);
         var commonTokenStream = new CommonTokenStream(cardCodeLexer);
         var cardCodeParser = new CardCodeParser(commonTokenStream);
-        cardCodeParser.AddErrorListener(new ErrorListener());
+        
+        var cardCodeContext = cardCodeParser.program();
+        var visitor = new CardCodeVisitor(errorListener);
+        visitor.Visit(cardCodeContext);
 
-        if(cardCodeParser.NumberOfSyntaxErrors > 0){
+        var logContent = File.ReadAllLines(logPath);
+
+        if(logContent.Length > 0){
             StreamReader reader = new StreamReader(logPath);
             string line = reader.ReadLine();
             string error = reader.ReadLine();
@@ -61,9 +59,6 @@ public class RunCode : MonoBehaviour
             reader.Close();
         }
         else{
-            var cardCodeContext = cardCodeParser.program();
-            var visitor = new CardCodeVisitor();
-            visitor.Visit(cardCodeContext);
 
             //verificação da estrutura
             ChallengeCard.instance.CheckCode();

@@ -46,11 +46,8 @@ public class ChallengeCard : MonoBehaviour
         int cont = 1;
 
         while((line = reader.ReadLine()) != null){
-            /* print(line);
-            foreach(string key in structure.Keys){
-                //print(key == line);
-                print(key + "=" + line);
-            } */
+            
+            
             
             if(structure.ContainsKey(line)){
                 structure[line] = cont;
@@ -94,6 +91,7 @@ public class ChallengeCard : MonoBehaviour
             return;
         }
 
+        //se estrutura está correta verifica o output
         bool hasOutput = false;
         StreamReader outputReader = new StreamReader(outputPath);
         string outputContent = outputReader.ReadToEnd();
@@ -109,6 +107,7 @@ public class ChallengeCard : MonoBehaviour
         if(hasOutput){
             hasStructure = true;
         }
+        //output está incorreto
         else{
             StreamWriter writer = new StreamWriter(logPath);
             writer.Write($"O desafio espera o resultado {expectation}, entretanto a saída recebida foi {outputContent}");

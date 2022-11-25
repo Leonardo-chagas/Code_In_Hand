@@ -11,6 +11,9 @@ public class DropzoneWrite : MonoBehaviour, IWritable
         int bothMasks = mask | mask2;
 
         RaycastHit2D[] checkIfLeft = Physics2D.RaycastAll(transform.position, Vector2.left, 10000, mask2);
+        if(checkIfLeft.Length == 0){
+            return;
+        }
         foreach(RaycastHit2D hit in checkIfLeft){
             if(hit.collider.gameObject.CompareTag("if card")){
                 return;

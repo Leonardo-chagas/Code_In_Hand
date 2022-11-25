@@ -1,1 +1,2 @@
-O desafio espera o resultado Hello World, entretanto a saída recebida foi oi
+1
+Nenhum valor foi passado para o print
