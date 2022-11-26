@@ -24,6 +24,7 @@ public class PlacedCard : MonoBehaviour, IPlaceable
     {
         inputField = inputCard.transform.GetChild(2).GetComponent<TMP_InputField>();
         inputField.contentType = contentType;
+
         bigCardArea = GameObject.Find("BigCardArea").transform.GetChild(0);
         cardPoint = bigCardArea.GetChild(1);
         foreach(Transform child in transform){

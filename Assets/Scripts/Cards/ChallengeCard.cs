@@ -44,10 +44,15 @@ public class ChallengeCard : MonoBehaviour
         var reader = new StreamReader(path);
         string line;
         int cont = 1;
+        
 
         while((line = reader.ReadLine()) != null){
             
-            
+            foreach(string key in structure.Keys){
+                if(key.Contains("VAR")){
+                    
+                }
+            }
             
             if(structure.ContainsKey(line)){
                 structure[line] = cont;

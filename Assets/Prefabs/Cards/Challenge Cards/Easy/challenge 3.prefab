@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7601987498306822030
+--- !u!1001 &2107861211461089335
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3849591959125104577, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Name
-      value: challenge 2
+      value: challenge 3
       objectReference: {fileID: 0}
     - target: {fileID: 5181491440690397987, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_text
@@ -17,7 +17,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_text
-      value: 'Crie um programa que '
+      value: "Crie um programa que receba duas vari\xE1veis com valores int 2 e 5
+        respectivamente, e printe a soma dessa vari\xE1veis"
       objectReference: {fileID: 0}
     - target: {fileID: 8270031416301560303, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Pivot.x

@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2107861211461089335
+--- !u!1001 &7601987498306822030
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,7 +9,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3849591959125104577, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Name
-      value: challenge
+      value: challenge 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5181491440690397987, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_text
+      value: "Desafio F\xE1cil"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_text
+      value: "Crie um programa que receba uma vari\xE1vel com valor de string \"Ol\xE1\",
+        e printe essa vari\xE1vel"
       objectReference: {fileID: 0}
     - target: {fileID: 8270031416301560303, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Pivot.x
