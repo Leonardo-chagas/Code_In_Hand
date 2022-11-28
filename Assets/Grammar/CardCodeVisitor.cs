@@ -50,17 +50,17 @@ public interface ICardCodeVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <return>The visitor result.</return>
 	Result VisitStatement([NotNull] CardCodeParser.StatementContext context);
 	/// <summary>
+	/// Visit a parse tree produced by <see cref="CardCodeParser.functionCall"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunctionCall([NotNull] CardCodeParser.FunctionCallContext context);
+	/// <summary>
 	/// Visit a parse tree produced by <see cref="CardCodeParser.ifBlock"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitIfBlock([NotNull] CardCodeParser.IfBlockContext context);
-	/// <summary>
-	/// Visit a parse tree produced by <see cref="CardCodeParser.printCall"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	/// <return>The visitor result.</return>
-	Result VisitPrintCall([NotNull] CardCodeParser.PrintCallContext context);
 	/// <summary>
 	/// Visit a parse tree produced by the <c>parenthesizedExpression</c>
 	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
@@ -89,6 +89,13 @@ public interface ICardCodeVisitor<Result> : IParseTreeVisitor<Result> {
 	/// <param name="context">The parse tree.</param>
 	/// <return>The visitor result.</return>
 	Result VisitIdentifierExpression([NotNull] CardCodeParser.IdentifierExpressionContext context);
+	/// <summary>
+	/// Visit a parse tree produced by the <c>functionCallExpression</c>
+	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	/// <return>The visitor result.</return>
+	Result VisitFunctionCallExpression([NotNull] CardCodeParser.FunctionCallExpressionContext context);
 	/// <summary>
 	/// Visit a parse tree produced by the <c>notExpression</c>
 	/// labeled alternative in <see cref="CardCodeParser.expression"/>.

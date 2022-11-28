@@ -17,6 +17,8 @@ public class InputCard : MonoBehaviour
     public TMP_Text text;
     public TMP_Text cardText;
     public TMP_InputField inputField;
+    [HideInInspector]
+    public bool isVariable = false;
 
     void Start()
     {
@@ -55,10 +57,10 @@ public class InputCard : MonoBehaviour
             cardText.text = inputField.text;
         }
         //adiciona a variável para o dicionário
-        if(!GameManager.instance.variables.ContainsKey(cardText.text)){
+        if(!GameManager.instance.variables.ContainsKey(cardText.text) && isVariable){
             GameManager.instance.variables.Add(cardText.text, 1);
         }
-        else{
+        else if(GameManager.instance.variables.ContainsKey(cardText.text) && isVariable){
             GameManager.instance.variables[cardText.text] = GameManager.instance.variables[cardText.text] + 1;
         }
 

@@ -47,6 +47,7 @@ public class PlacedCard : MonoBehaviour, IPlaceable
         obj.transform.SetParent(cardPoint, false);
         obj.transform.position = cardPoint.position;
         InputCard card = obj.GetComponent<InputCard>();
+        card.isVariable = isVariable;
         card.color = color;
         card.cardText = cardText;
     }

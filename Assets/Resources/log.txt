@@ -1,2 +1,0 @@
-1
-Nenhum valor foi passado para o print

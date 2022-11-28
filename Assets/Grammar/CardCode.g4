@@ -2,19 +2,22 @@ grammar CardCode;
 
 program: line* EOF;
 
-line: statement | printCall | ifBlock;
+line: statement | ifBlock;
 
-statement: (assignment) ';';
+statement: (assignment|functionCall) ';';
+
+functionCall: IDENTIFIER '(' (expression (',' expression)*)? ')';
 
 //ifBlock: 'if' expression block ('else' block)?;
 ifBlock: 'IF' expression block ('ELSE' block)?;
 
 //printCall: 'print(' expression ')';
-printCall: 'PRINT' expression ';';
+//printCall: 'PRINT' expression;
 
 expression
     : constant                              #constantExpression
     | IDENTIFIER                            #identifierExpression
+    | functionCall                          #functionCallExpression
     | '(' expression ')'                    #parenthesizedExpression
     | '!' expression                        #notExpression
     | expression multOp expression          #multiplicativeExpression
@@ -44,4 +47,4 @@ assignment: IDENTIFIER '=' expression;
 
 WS: [ \t\r\n]+ -> skip;
 
-IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_];
+IDENTIFIER: [a-zA-Z_][a-zA-Z0-9_]*;

@@ -36,10 +36,12 @@ public class RunCode : MonoBehaviour
         //GameManager.instance.variables.Clear();
         WriteProgram();
         ResetFiles();
-        var fileContents = new StreamReader(path);
+        var fileContents = File.ReadAllText(path);
+
+        //print(fileContents.ReadToEnd());
 
         //verificação da sintaxe
-        var inputStream = new AntlrInputStream(fileContents.ReadToEnd());
+        var inputStream = new AntlrInputStream(fileContents);
         var cardCodeLexer = new CardCodeLexer(inputStream);
         var commonTokenStream = new CommonTokenStream(cardCodeLexer);
         var cardCodeParser = new CardCodeParser(commonTokenStream);
@@ -51,12 +53,12 @@ public class RunCode : MonoBehaviour
         var logContent = File.ReadAllLines(logPath);
 
         if(logContent.Length > 0){
-            StreamReader reader = new StreamReader(logPath);
-            string line = reader.ReadLine();
-            string error = reader.ReadLine();
+            //StreamReader reader = new StreamReader(logPath);
+            string line = logContent[0];
+            string error = logContent[1];
             loseScreen.SetActive(true);
             loseText.text = $"Erro na linha {line}: {error}";
-            reader.Close();
+            //reader.Close();
         }
         else{
 

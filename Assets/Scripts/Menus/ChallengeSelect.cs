@@ -8,17 +8,17 @@ using UnityEngine.EventSystems;
 
 public class ChallengeSelect : MonoBehaviour
 {
-    [Serializable]
+    /* [Serializable]
     public struct Cards{
         public string cardName;
         public int cardAmount;
-    }
-    public Cards[] cards;
+    } */
+    /* public Cards[] cards; */
     public GameObject challengeCard;
     public Transform challengePosition;
     Button button;
     EventTrigger eventTrigger;
-    public Dictionary<string, int> cardsToTake = new Dictionary<string, int>();
+    /* public Dictionary<string, int> cardsToTake = new Dictionary<string, int>(); */
     
     void Start(){
         button = GetComponent<Button>();
@@ -29,13 +29,13 @@ public class ChallengeSelect : MonoBehaviour
         entry.callback.AddListener((eventData) => {ShowChallenge();});
         eventTrigger.triggers.Add(entry);
 
-        foreach(Cards card in cards){
+        /* foreach(Cards card in cards){
             cardsToTake.Add(card.cardName, card.cardAmount);
-        }
+        } */
     }
     public void SelectChallenge(){
         GameManager.instance.challenge = challengeCard;
-        GameManager.instance.cardsToDraw = cardsToTake;
+        //GameManager.instance.cardsToDraw = cardsToTake;
         SceneManager.LoadScene("Game");
     }
 

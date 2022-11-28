@@ -61,6 +61,16 @@ public interface ICardCodeListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitStatement([NotNull] CardCodeParser.StatementContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="CardCodeParser.functionCall"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunctionCall([NotNull] CardCodeParser.FunctionCallContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="CardCodeParser.functionCall"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunctionCall([NotNull] CardCodeParser.FunctionCallContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="CardCodeParser.ifBlock"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -70,16 +80,6 @@ public interface ICardCodeListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitIfBlock([NotNull] CardCodeParser.IfBlockContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="CardCodeParser.printCall"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterPrintCall([NotNull] CardCodeParser.PrintCallContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="CardCodeParser.printCall"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitPrintCall([NotNull] CardCodeParser.PrintCallContext context);
 	/// <summary>
 	/// Enter a parse tree produced by the <c>parenthesizedExpression</c>
 	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
@@ -128,6 +128,18 @@ public interface ICardCodeListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitIdentifierExpression([NotNull] CardCodeParser.IdentifierExpressionContext context);
+	/// <summary>
+	/// Enter a parse tree produced by the <c>functionCallExpression</c>
+	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFunctionCallExpression([NotNull] CardCodeParser.FunctionCallExpressionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by the <c>functionCallExpression</c>
+	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFunctionCallExpression([NotNull] CardCodeParser.FunctionCallExpressionContext context);
 	/// <summary>
 	/// Enter a parse tree produced by the <c>notExpression</c>
 	/// labeled alternative in <see cref="CardCodeParser.expression"/>.

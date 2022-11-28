@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using Antlr4.Runtime.Misc;
@@ -13,40 +14,81 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
     public CardCodeVisitor(ErrorListener errorListener){
         errorHandler = errorListener;
+
+        Variables["PRINT"] = new Func<object?[], object?>(PRINT);
     }
 
-    public override object? VisitAssignment([NotNull] CardCodeParser.AssignmentContext context)
+    private object? PRINT(object?[] args){
+        foreach(var arg in args){
+            using(var writer = File.AppendText("Assets/Resources/output.txt")){
+                writer.WriteLine(arg.ToString());
+            }
+        }
+        return null;
+    }
+
+    public override object VisitFunctionCall(CardCodeParser.FunctionCallContext context)
+    {
+        var line = context.Start.Line;
+        var name = context.IDENTIFIER().GetText();
+        var args = context.expression().Select(Visit).ToArray();
+
+        if(!Variables.ContainsKey(name)){
+            errorHandler.HandleError(line, $"função {name} não foi definida");
+            return null;
+        }
+
+        if(Variables[name] is not Func<object?[], object?> func){
+            errorHandler.HandleError(line, $"variável {name} não é uma função");
+            return null;
+        }
+        return func(args);
+    }
+
+    public override object? VisitAssignment(CardCodeParser.AssignmentContext context)
     {
         var line = context.Start.Line;
         var varName = context.IDENTIFIER().GetText();
+        
+        
 
         if(reservedWords.Contains(varName) || reservedOperators.Contains(varName)){
             errorHandler.HandleError(line, $"variável não pode ser chamada de {varName}");
         }
 
         var value = Visit(context.expression());
+        
 
         Variables[varName] = value;
+        
 
         return null;
     }
 
-    public override object? VisitPrintCall([NotNull] CardCodeParser.PrintCallContext context)
+    /* public override object? VisitPrintCall(CardCodeParser.PrintCallContext context)
     {
+        var writerx = new StreamWriter("Assets/Resources/log.txt");
+        writerx.WriteLine("passou por print");
+        writerx.Close(); 
         var line = context.Start.Line;
         var exp = Visit(context.expression());
+        var writerx = new StreamWriter("Assets/Resources/log.txt");
+        writerx.WriteLine("passou por print");
+        writerx.Close();
+        
         if(exp == null){
             errorHandler.HandleError(line, "Nenhum valor foi passado para o print");
+            return null;
         }
         
         using(var writer = File.AppendText("Assets/Resources/output.txt")){
-            writer.WriteLine(Visit(context.expression())?.ToString() ?? "");
+            writer.WriteLine(Visit(context.expression()).ToString());
         }
 
         return null;
-    }
+    } */
 
-    public override object? VisitConstant([NotNull] CardCodeParser.ConstantContext context)
+    public override object? VisitConstant(CardCodeParser.ConstantContext context)
     {
         var line = context.Start.Line;
         if(context.INTEGER() is {} i){
@@ -69,7 +111,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return null;
     }
 
-    public override object? VisitIdentifierExpression([NotNull] CardCodeParser.IdentifierExpressionContext context)
+    public override object? VisitIdentifierExpression(CardCodeParser.IdentifierExpressionContext context)
     {
         var line = context.Start.Line;
         var varName = context.IDENTIFIER().GetText();
@@ -86,7 +128,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return Variables[varName];
     }
 
-    public override object? VisitAdditiveExpression([NotNull] CardCodeParser.AdditiveExpressionContext context)
+    public override object? VisitAdditiveExpression(CardCodeParser.AdditiveExpressionContext context)
     {
         var line = context.Start.Line;
         var left = Visit(context.expression(0));
@@ -136,7 +178,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return null;
     }
 
-    public override object? VisitIfBlock([NotNull] CardCodeParser.IfBlockContext context)
+    public override object? VisitIfBlock(CardCodeParser.IfBlockContext context)
     {
         var line = context.Start.Line;
         var exp = Visit(context.expression());
@@ -152,7 +194,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return null;
     }
 
-    public override object? VisitComparisonExpression([NotNull] CardCodeParser.ComparisonExpressionContext context)
+    public override object? VisitComparisonExpression(CardCodeParser.ComparisonExpressionContext context)
     {
         var line = context.Start.Line;
         var left = Visit(context.expression(0));
@@ -171,7 +213,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         };
     }
 
-    public override object? VisitMultiplicativeExpression([NotNull] CardCodeParser.MultiplicativeExpressionContext context)
+    public override object? VisitMultiplicativeExpression(CardCodeParser.MultiplicativeExpressionContext context)
     {
         var line = context.Start.Line;
         var left = context.expression(0);
@@ -187,7 +229,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         };
     }
 
-    public override object? VisitBooleanExpression([NotNull] CardCodeParser.BooleanExpressionContext context)
+    public override object? VisitBooleanExpression(CardCodeParser.BooleanExpressionContext context)
     {
         var line = context.Start.Line;
         var left = context.expression(0);

@@ -72,6 +72,18 @@ public partial class CardCodeBaseListener : ICardCodeListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitStatement([NotNull] CardCodeParser.StatementContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="CardCodeParser.functionCall"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFunctionCall([NotNull] CardCodeParser.FunctionCallContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="CardCodeParser.functionCall"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFunctionCall([NotNull] CardCodeParser.FunctionCallContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="CardCodeParser.ifBlock"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -83,18 +95,6 @@ public partial class CardCodeBaseListener : ICardCodeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitIfBlock([NotNull] CardCodeParser.IfBlockContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="CardCodeParser.printCall"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterPrintCall([NotNull] CardCodeParser.PrintCallContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="CardCodeParser.printCall"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitPrintCall([NotNull] CardCodeParser.PrintCallContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>parenthesizedExpression</c>
 	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
@@ -151,6 +151,20 @@ public partial class CardCodeBaseListener : ICardCodeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitIdentifierExpression([NotNull] CardCodeParser.IdentifierExpressionContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by the <c>functionCallExpression</c>
+	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFunctionCallExpression([NotNull] CardCodeParser.FunctionCallExpressionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by the <c>functionCallExpression</c>
+	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFunctionCallExpression([NotNull] CardCodeParser.FunctionCallExpressionContext context) { }
 	/// <summary>
 	/// Enter a parse tree produced by the <c>notExpression</c>
 	/// labeled alternative in <see cref="CardCodeParser.expression"/>.
