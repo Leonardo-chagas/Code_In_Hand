@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7778669805444998548}
   - component: {fileID: 8470485055302306848}
   - component: {fileID: 4691153172427693098}
+  - component: {fileID: 7371609030883846140}
   m_Layer: 5
   m_Name: block
   m_TagString: Untagged
@@ -94,6 +95,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appendLeft: '{\n'
   appendRight: '}\n'
+  writeNewLine: 0
+--- !u!114 &7371609030883846140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201529814909164488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bd011ce6123d2345844830917fef733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scale: {x: 1, y: 1, z: 1}
 --- !u!1001 &3518617557591540158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -228,7 +243,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_SizeDelta.y
@@ -264,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_AnchoredPosition.y

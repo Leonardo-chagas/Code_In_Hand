@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: lines.Array.data[0]
-      value: VAR="ola"
+      value: VAR="ola";
       objectReference: {fileID: 0}
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: expectedOutput.Array.size

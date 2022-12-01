@@ -135,6 +135,8 @@ GameObject:
   - component: {fileID: 23204356}
   - component: {fileID: 23204355}
   - component: {fileID: 23204354}
+  - component: {fileID: 23204358}
+  - component: {fileID: 23204357}
   m_Layer: 5
   m_Name: desafio 1
   m_TagString: Untagged
@@ -257,6 +259,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 23204352}
   m_CullTransparentMesh: 1
+--- !u!114 &23204357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23204352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &23204358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 23204352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeCard: {fileID: 2742374614271518881, guid: 094ebea560cd6834ca750507964b5b33, type: 3}
+  challengePosition: {fileID: 688658367}
 --- !u!1 &116697533
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +921,8 @@ GameObject:
   - component: {fileID: 455349796}
   - component: {fileID: 455349795}
   - component: {fileID: 455349794}
+  - component: {fileID: 455349798}
+  - component: {fileID: 455349797}
   m_Layer: 5
   m_Name: desafio 1
   m_TagString: Untagged
@@ -1014,6 +1045,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 455349792}
   m_CullTransparentMesh: 1
+--- !u!114 &455349797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455349792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &455349798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455349792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeCard: {fileID: 5864127065712573598, guid: 99c103e659a31f34ab2f912296cadf3a, type: 3}
+  challengePosition: {fileID: 688658367}
 --- !u!1 &481823827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1623,6 +1681,8 @@ GameObject:
   - component: {fileID: 555061713}
   - component: {fileID: 555061712}
   - component: {fileID: 555061711}
+  - component: {fileID: 555061715}
+  - component: {fileID: 555061714}
   m_Layer: 5
   m_Name: desafio 2
   m_TagString: Untagged
@@ -1745,6 +1805,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555061709}
   m_CullTransparentMesh: 1
+--- !u!114 &555061714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555061709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &555061715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555061709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeCard: {fileID: 995931617072855000, guid: dfcf826be5f5c074d8f5d03e06eeaa53, type: 3}
+  challengePosition: {fileID: 688658367}
 --- !u!1 &559457772
 GameObject:
   m_ObjectHideFlags: 0
@@ -3014,6 +3101,8 @@ GameObject:
   - component: {fileID: 1322352345}
   - component: {fileID: 1322352344}
   - component: {fileID: 1322352343}
+  - component: {fileID: 1322352347}
+  - component: {fileID: 1322352346}
   m_Layer: 5
   m_Name: desafio 2
   m_TagString: Untagged
@@ -3136,6 +3225,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322352341}
   m_CullTransparentMesh: 1
+--- !u!114 &1322352346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322352341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &1322352347
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322352341}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeCard: {fileID: 836572831861049059, guid: 0c7153fb9d94c544381f193d381671d4, type: 3}
+  challengePosition: {fileID: 688658367}
 --- !u!1 &1376663150
 GameObject:
   m_ObjectHideFlags: 0
@@ -4423,6 +4539,8 @@ GameObject:
   - component: {fileID: 1879964144}
   - component: {fileID: 1879964143}
   - component: {fileID: 1879964142}
+  - component: {fileID: 1879964146}
+  - component: {fileID: 1879964145}
   m_Layer: 5
   m_Name: desafio 3
   m_TagString: Untagged
@@ -4545,6 +4663,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1879964140}
   m_CullTransparentMesh: 1
+--- !u!114 &1879964145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879964140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &1879964146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879964140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeCard: {fileID: 1217449085214671219, guid: 843e71bd28cf6764897c5086443d85f5, type: 3}
+  challengePosition: {fileID: 688658367}
 --- !u!1 &1890699416
 GameObject:
   m_ObjectHideFlags: 0
@@ -5285,6 +5430,8 @@ GameObject:
   - component: {fileID: 2048719413}
   - component: {fileID: 2048719412}
   - component: {fileID: 2048719411}
+  - component: {fileID: 2048719415}
+  - component: {fileID: 2048719414}
   m_Layer: 5
   m_Name: desafio 3
   m_TagString: Untagged
@@ -5407,6 +5554,33 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2048719409}
   m_CullTransparentMesh: 1
+--- !u!114 &2048719414
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048719409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
+--- !u!114 &2048719415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048719409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  challengeCard: {fileID: 507727139361558956, guid: b945c79dcd7497e4f841f3a6efb06fc8, type: 3}
+  challengePosition: {fileID: 688658367}
 --- !u!1 &2114914208
 GameObject:
   m_ObjectHideFlags: 0

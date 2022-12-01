@@ -91,6 +91,7 @@ public class RunCode : MonoBehaviour
 
     //writes player data to file
     private void LogData(){
+        print("Logando dados");
         var writer = File.ReadAllLines(dataPath);
         string line = writer[challengeIndex];
 

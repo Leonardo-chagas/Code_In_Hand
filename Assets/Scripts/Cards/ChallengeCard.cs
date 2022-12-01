@@ -61,51 +61,83 @@ public class ChallengeCard : MonoBehaviour
         hasStructure = false;
         //var reader = new StreamReader(path);
         //string line;
-        int cont = 1;
         List<string> variables = GameManager.instance.variables.Keys.ToList();
+        /* foreach(string e in variables)
+            print(e); */
+        string[] code = File.ReadAllLines(path);
+        List<string> lines = new List<string>(code);
+        Dictionary<string, int> structureCopy = new Dictionary<string, int>(structure);
         
 
-        foreach(string line in File.ReadAllLines(path)){
-            //print(line);
+        //verifica se o programa possui todos os elementos necessários
+        foreach(string key in structureCopy.Keys){
             
             //bloco que faz match se tiver variável
-            foreach(string key in structure.Keys){
-                bool matched = false;
-                if(key.Contains("VAR")){
-                    string[] splitString = key.Split(new[] {"VAR"}, StringSplitOptions.None);
-
-                    foreach(IEnumerable<string> i in Combinations(variables, splitString.Length-1)){
-                        string result = "";
-                        int count = 0;
-                        print(i);
-
-                        foreach(string value in i){
-                            result = result + string.Join(value, splitString, count, count+1);
-                            count++;
+            if(key.Contains("VAR")){
+                //print(key);
+                int cont = 1;
+                foreach(string line in lines){
+                    //print(line);
+                    bool matched = false;
+                    if(key.Contains("VAR")){
+                        string[] splitString = key.Split(new[] {"VAR"}, StringSplitOptions.None);
+                        /* foreach(string i in splitString)
+                            print(i); */
+                        List<List<string>> combs = new List<List<string>>();
+                        List<List<string>> combinations = ProduceEnumeration(variables).ToList();
+                        foreach(List<string> combination in combinations){
+                            if(combination.Count == splitString.Length-1)
+                                combs.Add(combination);
                         }
-                        /* print(RemoveDiacritics(result).ToLower().Trim());
-                        print(RemoveDiacritics(line).ToLower().Trim()); */
-                        if(RemoveDiacritics(result).ToLower().Trim() == RemoveDiacritics(line).ToLower().Trim()){
-                            print("Deu match");
-                            structure[key] = cont;
-                            matched = true;
-                            break;
+
+                        foreach(IEnumerable<string> i in combs){
+                            string result = "";
+                            int count = 0;
+                            //print(i);
+
+                            foreach(string value in i){
+                                //print(value);
+                                result = result + string.Join(value, splitString, count, 2);
+                                //print(string.Join(value, splitString, count, 2));
+                                count++;
+                            }
+                            print(RemoveDiacritics(result).ToLower().Trim());
+                            print(RemoveDiacritics(line).ToLower().Trim());
+                            line.Replace("\u200B", "");
+                            result.Replace("\u200B", "");
+                            if(RemoveDiacritics(result).ToLower().Trim() == RemoveDiacritics(line).ToLower().Trim() &&
+                            (!string.IsNullOrEmpty(result) && !string.IsNullOrWhiteSpace(result)) &&
+                            (!string.IsNullOrEmpty(line) && !string.IsNullOrWhiteSpace(line))){
+                                print("Deu match");
+                                structure[key] = cont;
+                                matched = true;
+                                break;
+                            }
                         }
                     }
-                }
-                if(matched){
-                    break;
+                    if(matched){
+                        break;
+                    }
+                    cont++;
                 }
             }
-            
             //bloco que faz match se não tiver variável
-            if(structure.ContainsKey(line)){
-                structure[line] = cont;
-                print("achou linha");
+            else{
+                foreach(string line in lines){
+                    print(line);
+                    int cont = 1;
+                    if(RemoveDiacritics(key).ToLower().Trim() == RemoveDiacritics(line).ToLower().Trim()){
+                        structure[key] = cont;
+                        print("achou linha");
+                        break;
+                    }
+                    cont++;
+                }
             }
-            cont++;
         }
-        //reader.Close();
+            
+            
+        
 
         int baseValue = 0;
         bool error = false;
@@ -194,7 +226,24 @@ public class ChallengeCard : MonoBehaviour
     }
 
     //devolve todas as k combinações de elementos de uma lista
-    private bool NextCombination(IList<int> num, int n, int k){
+    private IEnumerable<int> ConstructSetFromBits(int i)
+    {
+        for (int n = 0; i != 0; i /= 2, n++)
+        {
+            if ((i & 1) != 0)
+                yield return n;
+        }
+    }
+
+    private IEnumerable<List<string>> ProduceEnumeration(List<string> allValues)
+    {
+        for (int i = 0; i < (1 << allValues.Count); i++)
+        {
+            yield return
+                ConstructSetFromBits(i).Select(n => allValues[n]).ToList();
+        }
+    }
+    /* private bool NextCombination(IList<int> num, int n, int k){
         bool finished;
         var changed = finished = false;
 
@@ -218,6 +267,8 @@ public class ChallengeCard : MonoBehaviour
     private IEnumerable Combinations<T>(IEnumerable<T> elements, int k){
         var elem = elements.ToArray();
         var size = elem.Length;
+        /* print(k);
+        print(size); 
 
         if(k > size) yield break;
         if(k == 1 && size == 1){
@@ -234,5 +285,5 @@ public class ChallengeCard : MonoBehaviour
         do{
             yield return numbers.Select(n => elem[n]);
         } while(NextCombination(numbers, size, k));
-    }
+    } */
 }

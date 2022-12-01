@@ -49,11 +49,13 @@ public class Dropzone : MonoBehaviour
             //CheckHorizontalCard(currentDropzone);
             GameObject drop = Instantiate(dropzone);
             drop.transform.SetParent(currentDropzoneParent);
+            //currentDropzoneParent.GetComponent<EvenChildAmount>()?.ChangePos();
             //drop.transform.position = new Vector3(currentDropzone.position.x + space, pos.position.y, pos.position.z);
         }
         card.SetParent(currentDropzoneParent);
         card.SetSiblingIndex(currentDropzone.GetSiblingIndex());
         Destroy(currentDropzone.gameObject);
+        
     }
 
     private void CheckVerticalCard(Transform obj){
