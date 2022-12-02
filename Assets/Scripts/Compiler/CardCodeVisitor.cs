@@ -15,13 +15,19 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
     public CardCodeVisitor(ErrorListener errorListener){
         errorHandler = errorListener;
 
-        Variables["PRINT"] = new Func<object?[], object?>(PRINT);
+        Variables["PRINT"] = new Func<int, object?[], object?>(PRINT);
     }
 
-    private object? PRINT(object?[] args){
-        foreach(var arg in args){
-            using(var writer = File.AppendText("Assets/Resources/output.txt")){
-                writer.WriteLine(arg.ToString());
+    private object? PRINT(int line, object?[] args){
+        if(args.Length <= 0){
+            errorHandler.HandleError(line, "Nenhuma expressão foi passada para o print");
+            return null;
+        }
+        else{
+            foreach(var arg in args){
+                using(var writer = File.AppendText("Assets/Resources/output.txt")){
+                    writer.WriteLine(arg.ToString());
+                }
             }
         }
         return null;
@@ -38,11 +44,11 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return null;
         }
 
-        if(Variables[name] is not Func<object?[], object?> func){
+        if(Variables[name] is not Func<int, object?[], object?> func){
             errorHandler.HandleError(line, $"variável {name} não é uma função");
             return null;
         }
-        return func(args);
+        return func(line, args);
     }
 
     public override object? VisitAssignment(CardCodeParser.AssignmentContext context)

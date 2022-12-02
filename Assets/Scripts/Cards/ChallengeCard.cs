@@ -159,7 +159,7 @@ public class ChallengeCard : MonoBehaviour
             //ordem da estrutura do código está incorreta
             else{
                 StreamWriter writer = new StreamWriter(logPath);
-                writer.Write("A estrutura do código não condiz com as especificações do desafio");
+                writer.Write("A ordem da estrutura do código está incorreta");
                 writer.Close();
                 hasStructure = false;
                 return;

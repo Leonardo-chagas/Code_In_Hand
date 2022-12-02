@@ -7,6 +7,7 @@ public class Dropzone : MonoBehaviour
 {
     private Vector2 startPosition;
     private RectTransform rectTransform;
+    private FitContent fitContent;
     //public static Dropzone instance;
     public GameObject dropzone;
     public GameObject line;
@@ -19,6 +20,7 @@ public class Dropzone : MonoBehaviour
         startPosition = transform.GetChild(0).localPosition;
         print(startPosition);
         rectTransform = GetComponent<RectTransform>();
+        fitContent = GetComponent<FitContent>();
         /* horizontalScroll.SetActive(false);
         verticalScroll.SetActive(false); */
     }
@@ -55,7 +57,12 @@ public class Dropzone : MonoBehaviour
         card.SetParent(currentDropzoneParent, false);
         card.SetSiblingIndex(currentDropzone.GetSiblingIndex());
         Destroy(currentDropzone.gameObject);
-        
+
+        float cardWidth = card.gameObject.GetComponent<RectTransform>().rect.width;
+        float lineSpacing = currentDropzoneParent.gameObject.GetComponent<HorizontalLayoutGroup>().spacing;
+        float lineWidth = currentDropzoneParent.gameObject.GetComponent<RectTransform>().rect.width;
+        float width = cardWidth+lineSpacing+lineWidth;
+        fitContent.Fit(width);
     }
 
     private void CheckVerticalCard(Transform obj){

@@ -1,5 +1,5 @@
-desafio1|0|false|output
-desafio2|0|false|
+desafio1|4|true|output
+desafio2|1|false|
 desafio3|0|false|
 desafio4|0|false|
 desafio5|0|false|

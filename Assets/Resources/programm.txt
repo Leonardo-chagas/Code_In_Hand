@@ -1,2 +1,2 @@
-PRINT("hello world"));
+PRINT(2.0);
 
