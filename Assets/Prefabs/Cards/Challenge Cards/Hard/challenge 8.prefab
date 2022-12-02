@@ -7,9 +7,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: id
+      value: desafio8
+      objectReference: {fileID: 0}
     - target: {fileID: 3849591959125104577, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Name
-      value: challenge
+      value: challenge 8
       objectReference: {fileID: 0}
     - target: {fileID: 8270031416301560303, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Pivot.x

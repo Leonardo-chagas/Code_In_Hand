@@ -8,16 +8,14 @@ public class DragDrop : MonoBehaviour
     [HideInInspector] public bool isDragging = false;
     private Transform startParent;
     private Vector3 startPosition;
-    private Transform dropArea;
     private Transform dropZone;
     private Transform dropZoneParent;
+    private Dropzone droparea;
     private TMP_Text text;
     private string startText;
     
     void Start()
     {
-        //startPosition = transform.position;
-        dropArea = GameObject.Find("DropArea").transform;
         StartCoroutine("DefineStart");
         foreach(Transform child in transform){
             if(child.name == "type"){
@@ -44,7 +42,9 @@ public class DragDrop : MonoBehaviour
     public void StartDrag(){
         isDragging = true;
         if(transform.parent != startParent){
-            Dropzone.instance.CardRemoved(transform);
+            if(droparea)
+                droparea.CardRemoved(transform);
+            //Dropzone.instance.CardRemoved(transform);
             //remove a variável do dicionário se a carta de variável for removida
             if(startText == "VAR"){
                 GameManager.instance.variables[text.text] = GameManager.instance.variables[text.text] - 1;
@@ -53,19 +53,15 @@ public class DragDrop : MonoBehaviour
                 }
             }
             text.text = startText;
-            print("passou");
         }
-        //startPosition = transform.position;
-        //startParent = transform.parent.gameObject;
     }
 
     public void StopDrag(){
         isDragging = false;
-        if(dropZone != null){
-            //transform.SetParent(dropZoneParent, false);
-            //transform.position = dropZone.position;
+        if(dropZone && droparea){
             gameObject.GetComponent<IPlaceable>()?.PlaceCard();
-            Dropzone.instance.CardAdded(transform, dropZone, dropZoneParent);
+            //Dropzone.instance.CardAdded(transform, dropZone, dropZoneParent);
+            droparea.CardAdded(transform, dropZone, dropZoneParent);
         }
         else{
             transform.position = startPosition;
@@ -77,6 +73,7 @@ public class DragDrop : MonoBehaviour
         if(col.gameObject.CompareTag("dropzone")){
             dropZone = col.transform;
             dropZoneParent = col.transform.parent;
+            droparea = dropZoneParent.parent.gameObject.GetComponent<Dropzone>();
         }
     }
 
@@ -84,6 +81,7 @@ public class DragDrop : MonoBehaviour
         if(col.gameObject.CompareTag("dropzone")){
             dropZone = null;
             dropZoneParent = null;
+            droparea = null;
         }
     }
 }

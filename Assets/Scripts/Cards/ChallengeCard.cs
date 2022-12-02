@@ -24,6 +24,7 @@ public class ChallengeCard : MonoBehaviour
     public string[] lines, expectedOutput;
     public string expectation;
     public int challengeIndex;
+    public string id;
     [HideInInspector] public bool hasStructure;
     Dictionary<string, int> structure = new Dictionary<string, int>();
 

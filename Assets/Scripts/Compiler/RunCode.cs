@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using System.Text;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,7 +13,6 @@ public class RunCode : MonoBehaviour
     private string path, dataPath, outputPath, logPath;
     private bool completedChallenge = false;
     private int challengeIndex;
-    private int tries = 0;
     private Transform dropArea;
     public GameObject winScreen;
     public GameObject loseScreen;
@@ -92,16 +93,27 @@ public class RunCode : MonoBehaviour
     //writes player data to file
     private void LogData(){
         print("Logando dados");
-        var writer = File.ReadAllLines(dataPath);
-        string line = writer[challengeIndex];
+        var reader = File.ReadAllLines(dataPath);
+        int cont = 0;
 
-        string[] currentLine = line.Split("|");
-        if(currentLine[1] == "false"){
-            print("logou data");
-            tries++;
-            string completed = completedChallenge ? "true" : "false";
-            string newLine = tries.ToString() + "|" + completed;
-            writer[challengeIndex] = newLine;
+        foreach(string line in reader){
+            if(line.StartsWith(ChallengeCard.instance.id)){
+                string[] currentLine = line.Split("|", System.StringSplitOptions.None);
+                if(currentLine[2] == "false"){
+                    print("logou data");
+                    string completed = completedChallenge ? "true" : "false";
+                    currentLine[1] = (Convert.ToInt32(currentLine[1]) + 1).ToString();
+                    currentLine[2] = completed;
+
+                    string newLine = string.Join("|", currentLine, 0, currentLine.Length);
+
+                    reader[cont] = newLine;
+                    File.WriteAllLines(dataPath, reader);
+
+                    break;
+                }
+            }
+            cont++;
         }
     }
 

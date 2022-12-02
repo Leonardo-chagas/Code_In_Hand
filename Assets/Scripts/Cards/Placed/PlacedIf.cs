@@ -14,6 +14,6 @@ public class PlacedIf : MonoBehaviour, IPlaceable
 
     public void PlaceCard(){
         GameObject obj = Instantiate(block);
-        obj.transform.SetParent(droparea);
+        obj.transform.SetParent(droparea, false);
     }
 }

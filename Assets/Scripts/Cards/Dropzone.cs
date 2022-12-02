@@ -7,7 +7,7 @@ public class Dropzone : MonoBehaviour
 {
     private Vector2 startPosition;
     private RectTransform rectTransform;
-    public static Dropzone instance;
+    //public static Dropzone instance;
     public GameObject dropzone;
     public GameObject line;
     public GameObject horizontalScroll;
@@ -15,7 +15,7 @@ public class Dropzone : MonoBehaviour
     float space = 100f;
     void Start()
     {
-        instance = this;
+        //instance = this;
         startPosition = transform.GetChild(0).localPosition;
         print(startPosition);
         rectTransform = GetComponent<RectTransform>();
@@ -36,9 +36,9 @@ public class Dropzone : MonoBehaviour
             if(currentDropzoneParent.GetSiblingIndex() == transform.childCount - 1){
                 //CheckVerticalCard(currentDropzone);
                 GameObject newLine = Instantiate(line);
-                newLine.transform.SetParent(transform);
+                newLine.transform.SetParent(transform, false);
                 GameObject drop = Instantiate(dropzone);
-                drop.transform.SetParent(newLine.transform);
+                drop.transform.SetParent(newLine.transform, false);
                 //drop.transform.position = new Vector3(currentDropzone.position.x, pos.position.y - space, pos.position.z);
             }
         }
@@ -48,11 +48,11 @@ public class Dropzone : MonoBehaviour
         if(currentDropzone.GetSiblingIndex() == currentDropzoneParent.childCount - 1){
             //CheckHorizontalCard(currentDropzone);
             GameObject drop = Instantiate(dropzone);
-            drop.transform.SetParent(currentDropzoneParent);
+            drop.transform.SetParent(currentDropzoneParent, false);
             //currentDropzoneParent.GetComponent<EvenChildAmount>()?.ChangePos();
             //drop.transform.position = new Vector3(currentDropzone.position.x + space, pos.position.y, pos.position.z);
         }
-        card.SetParent(currentDropzoneParent);
+        card.SetParent(currentDropzoneParent, false);
         card.SetSiblingIndex(currentDropzone.GetSiblingIndex());
         Destroy(currentDropzone.gameObject);
         

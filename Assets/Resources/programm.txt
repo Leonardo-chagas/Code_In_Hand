@@ -1,4 +1,2 @@
-x=2;
-y=5;
-PRINT(x+y);
+PRINT("hello world"));
 

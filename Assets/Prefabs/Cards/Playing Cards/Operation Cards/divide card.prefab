@@ -588,7 +588,6 @@ GameObject:
   - component: {fileID: 3322538923713349986}
   - component: {fileID: 1193146448027765751}
   - component: {fileID: 3904949790850538187}
-  - component: {fileID: 7331218120485295830}
   m_Layer: 7
   m_Name: divide card
   m_TagString: Untagged
@@ -800,19 +799,6 @@ MonoBehaviour:
   appendLeft: 
   appendRight: 
   isVariable: 0
---- !u!114 &7331218120485295830
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1246660961101443381}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bd011ce6123d2345844830917fef733, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scale: {x: 1, y: 1, z: 1}
 --- !u!1 &2418536812440843820
 GameObject:
   m_ObjectHideFlags: 0
