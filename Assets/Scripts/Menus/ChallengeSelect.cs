@@ -1,5 +1,8 @@
 using System;
+using System.IO;
+using System.Text;
 using System.Collections;
+using System.Globalization;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,38 +11,69 @@ using UnityEngine.EventSystems;
 
 public class ChallengeSelect : MonoBehaviour
 {
-    /* [Serializable]
-    public struct Cards{
-        public string cardName;
-        public int cardAmount;
-    } */
-    /* public Cards[] cards; */
+    private String dataPath;
+    public string challengeToComplete;
     public GameObject challengeCard;
     public Transform challengePosition;
-    Button button;
-    EventTrigger eventTrigger;
-    /* public Dictionary<string, int> cardsToTake = new Dictionary<string, int>(); */
+    public Color completedColor;
+    private bool unlocked = true;
+    private string challengeId;
+    private Button button;
+    private Image image;
+    private EventTrigger eventTrigger;
     
-    void Start(){
+    
+    void Awake(){
+
         button = GetComponent<Button>();
+        image = GetComponent<Image>();
         eventTrigger = GetComponent<EventTrigger>();
+
         button.onClick.AddListener(SelectChallenge);
+
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerEnter;
         entry.callback.AddListener((eventData) => {ShowChallenge();});
         eventTrigger.triggers.Add(entry);
 
-        /* foreach(Cards card in cards){
-            cardsToTake.Add(card.cardName, card.cardAmount);
-        } */
+        challengeId = challengeCard.GetComponent<ChallengeCard>()?.id;
     }
+
+    void OnEnable(){
+        dataPath = "Assets/Resources/data.txt";
+
+        var lines = File.ReadAllLines(dataPath);
+        foreach(string line in lines){
+            if(line.StartsWith(challengeId)){
+                string[] currentLine = line.Split("|", System.StringSplitOptions.None);
+                if(currentLine[2] == "true"){
+                    image.color = completedColor;
+                }
+            }
+
+            if(!string.IsNullOrEmpty(challengeToComplete) && !string.IsNullOrWhiteSpace(challengeToComplete)){
+                if(line.StartsWith(challengeToComplete)){
+                    string[] currentLine = line.Split("|", System.StringSplitOptions.None);
+                    if(currentLine[2] == "false"){
+                        unlocked = false;
+                        image.color = new Color(image.color.r-0.5f, image.color.b-0.5f, image.color.g-0.5f, image.color.a);
+                    }
+                    else{
+                        unlocked = true;
+                    }
+                }
+            }
+        }
+    }
+    
     public void SelectChallenge(){
+        if(!unlocked) return;
         GameManager.instance.challenge = challengeCard;
-        //GameManager.instance.cardsToDraw = cardsToTake;
         SceneManager.LoadScene("Game");
     }
 
     public void ShowChallenge(){
+        if(!unlocked) return;
         if(challengePosition.childCount > 0){
             Destroy(challengePosition.GetChild(0).gameObject);
         }
