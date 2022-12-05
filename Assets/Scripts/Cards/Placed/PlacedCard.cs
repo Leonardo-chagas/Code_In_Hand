@@ -13,11 +13,6 @@ public class PlacedCard : MonoBehaviour, IPlaceable
     public bool isVariable = false;
     public GameObject inputCard;
     public TMP_InputField inputField;
-    /* public enum ContentType {
-        Standard,
-        IntegerNumber,
-        DecimalNumber
-    } */
     public TMP_InputField.ContentType contentType;
 
     void Awake()

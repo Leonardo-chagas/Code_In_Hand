@@ -22,12 +22,17 @@ public class CardWrite : MonoBehaviour, IWritable
                 cardText = child.gameObject.GetComponent<TMP_Text>().text;
                 if(cardText == "PRINT"){
                     appendRight = "(";
-                    int mask2 = 1 << LayerMask.NameToLayer("Card");
+                    /* int mask2 = 1 << LayerMask.NameToLayer("Card");
                     RaycastHit2D[] checkCardRight = Physics2D.RaycastAll(transform.position, Vector2.right, 10000, mask2);
                     CardWrite cardWrite = checkCardRight[checkCardRight.Length - 1].collider.gameObject.GetComponent<CardWrite>();
-                    cardWrite.appendRight = cardWrite.appendRight + ")";
-                    /* AreaWrite areaWrite = transform.parent.GetComponent<AreaWrite>();
-                    areaWrite.appendRight = ")" + areaWrite.appendRight; */
+                    cardWrite.appendRight = cardWrite.appendRight + ")"; */
+                    AreaWrite areaWrite = transform.parent.GetComponent<AreaWrite>();
+                    areaWrite.appendRight = ")" + areaWrite.appendRight;
+                }
+                if(cardText == "IF" || cardText == "ELSE"){
+                    appendRight = "(";
+                    AreaWrite areaWrite = transform.parent.GetComponent<AreaWrite>();
+                    areaWrite.appendRight = ")";
                 }
             }
         }

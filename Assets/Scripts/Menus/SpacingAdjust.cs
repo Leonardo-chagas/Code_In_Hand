@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SpacingAdjust : MonoBehaviour
 {
     private HorizontalLayoutGroup layoutGroup;
-    private int amountToReadjust = -5;
+    private int amountToReadjust = -4;
     private int cardsUntilReadjust = 8;
     
     void Start()

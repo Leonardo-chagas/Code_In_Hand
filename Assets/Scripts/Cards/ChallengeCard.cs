@@ -62,12 +62,16 @@ public class ChallengeCard : MonoBehaviour
         hasStructure = false;
         //var reader = new StreamReader(path);
         //string line;
-        List<string> variables = GameManager.instance.variables.Keys.ToList();
+        IEnumerable<string> variables = GameManager.instance.variables.Keys.ToList();
         /* foreach(string e in variables)
             print(e); */
         string[] code = File.ReadAllLines(path);
         List<string> lines = new List<string>(code);
         Dictionary<string, int> structureCopy = new Dictionary<string, int>(structure);
+        /* List<List<string>> combinations = ProduceEnumeration(variables).ToList();
+        foreach(List<string> item in combinations){
+            print(item.Count);
+        } */
         
 
         //verifica se o programa possui todos os elementos necessários
@@ -82,25 +86,34 @@ public class ChallengeCard : MonoBehaviour
                     bool matched = false;
                     if(key.Contains("VAR")){
                         string[] splitString = key.Split(new[] {"VAR"}, StringSplitOptions.None);
+                        //print(splitString.Length);
                         /* foreach(string i in splitString)
                             print(i); */
-                        List<List<string>> combs = new List<List<string>>();
-                        List<List<string>> combinations = ProduceEnumeration(variables).ToList();
+                        
+                        IEnumerable<IEnumerable<string>> permutations = GetPermutations(variables, splitString.Length-1);
+                        /* List<List<string>> combs = new List<List<string>>();
                         foreach(List<string> combination in combinations){
                             if(combination.Count == splitString.Length-1)
                                 combs.Add(combination);
-                        }
+                        } */
 
-                        foreach(IEnumerable<string> i in combs){
+                        foreach(IEnumerable<string> i in permutations){
                             string result = "";
                             int count = 0;
                             //print(i);
 
                             foreach(string value in i){
                                 //print(value);
-                                result = result + string.Join(value, splitString, count, 2);
+                                if(count==0){
+                                    result = result + string.Join(value, splitString, count, 2);
+                                    count+=2;
+                                }
+                                else{
+                                    result = result+value;
+                                    result = result+splitString[count];
+                                    count++;
+                                }
                                 //print(string.Join(value, splitString, count, 2));
-                                count++;
                             }
                             print(RemoveDiacritics(result).ToLower().Trim());
                             print(RemoveDiacritics(line).ToLower().Trim());
@@ -244,47 +257,12 @@ public class ChallengeCard : MonoBehaviour
                 ConstructSetFromBits(i).Select(n => allValues[n]).ToList();
         }
     }
-    /* private bool NextCombination(IList<int> num, int n, int k){
-        bool finished;
-        var changed = finished = false;
 
-        if(k <= 0) return false;
+    static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> list, int length){
+    if (length == 1) return list.Select(t => new T[] { t });
 
-        for(var i = k - 1; !finished && !changed; i--){
-            if(num[i] < n - 1 - (k - 1) + i){
-                num[i]++;
-
-                if(i < k - 1)
-                    for(var j = i + 1; j< k; j++)
-                        num[j] = num[j - 1] + 1;
-                    changed = true;
-                
-                finished = i == 0;
-            }
-        }
-        return changed;
+    return GetPermutations(list, length - 1)
+        .SelectMany(t => list.Where(e => !t.Contains(e)),
+            (t1, t2) => t1.Concat(new T[] { t2 }));
     }
-
-    private IEnumerable Combinations<T>(IEnumerable<T> elements, int k){
-        var elem = elements.ToArray();
-        var size = elem.Length;
-        /* print(k);
-        print(size); 
-
-        if(k > size) yield break;
-        if(k == 1 && size == 1){
-            print("devolvendo lista original");
-            yield return elements;
-            yield break;
-        }
-
-        var numbers = new int[k];
-
-        for(var i = 0; i < k; i++)
-            numbers[i] = i;
-
-        do{
-            yield return numbers.Select(n => elem[n]);
-        } while(NextCombination(numbers, size, k));
-    } */
 }

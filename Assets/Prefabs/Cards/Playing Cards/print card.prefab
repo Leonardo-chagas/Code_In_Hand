@@ -628,7 +628,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   appendLeft: 
-  appendRight: 
+  appendRight: (
   isVariable: 0
 --- !u!1 &5561986360064759676
 GameObject:

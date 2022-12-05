@@ -11,6 +11,70 @@ PrefabInstance:
       propertyPath: id
       value: desafio6
       objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectation
+      value: 4.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[0]
+      value: VAR=3;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[1]
+      value: VAR=8;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[2]
+      value: VAR=4;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: VAR=VAR*VAR;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[0].cardName
+      value: var card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[1].cardName
+      value: assign card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[2].cardName
+      value: assign card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.data[0]
+      value: 4,7
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.data[1]
+      value: 4.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[0].cardAmount
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[1].cardAmount
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[2].cardAmount
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 3849591959125104577, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Name
       value: challenge 6
@@ -21,7 +85,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_text
-      value: 'Crie um programa '
+      value: "Crie um programa que receba 3 vari\xE1veis com valores int 3, 8 e 4 
+        respectivamente. Realize a multiplica\xE7\xE3o entre a primeira e segunda
+        vari\xE1veis, depois fa\xE7a a divis\xE3o entre esse resultado e a terceira
+        vari\xE1vel. Por fim printe esse resultado subtra\xEDdo pelo valor float
+        1.3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_fontSize
+      value: 6.7
       objectReference: {fileID: 0}
     - target: {fileID: 8270031416301560303, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Pivot.x

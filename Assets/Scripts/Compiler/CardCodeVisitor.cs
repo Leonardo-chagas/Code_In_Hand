@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Collections;
+using System.Globalization;
 using System.Collections.Generic;
 using Antlr4.Runtime.Misc;
 
@@ -60,6 +61,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
         if(reservedWords.Contains(varName) || reservedOperators.Contains(varName)){
             errorHandler.HandleError(line, $"variável não pode ser chamada de {varName}");
+            return null;
         }
 
         var value = Visit(context.expression());
@@ -71,28 +73,6 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         return null;
     }
 
-    /* public override object? VisitPrintCall(CardCodeParser.PrintCallContext context)
-    {
-        var writerx = new StreamWriter("Assets/Resources/log.txt");
-        writerx.WriteLine("passou por print");
-        writerx.Close(); 
-        var line = context.Start.Line;
-        var exp = Visit(context.expression());
-        var writerx = new StreamWriter("Assets/Resources/log.txt");
-        writerx.WriteLine("passou por print");
-        writerx.Close();
-        
-        if(exp == null){
-            errorHandler.HandleError(line, "Nenhum valor foi passado para o print");
-            return null;
-        }
-        
-        using(var writer = File.AppendText("Assets/Resources/output.txt")){
-            writer.WriteLine(Visit(context.expression()).ToString());
-        }
-
-        return null;
-    } */
 
     public override object? VisitConstant(CardCodeParser.ConstantContext context)
     {
@@ -101,7 +81,7 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
             return int.Parse(i.GetText());
         }
         if(context.FLOAT() is {} f){
-            return float.Parse(f.GetText());
+            return float.Parse(f.GetText(), CultureInfo.InvariantCulture.NumberFormat);
         }
         if(context.STRING() is {} s){
             return s.GetText()[1..^1];
@@ -124,11 +104,13 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
         if(reservedWords.Contains(varName) || reservedOperators.Contains(varName)){
             errorHandler.HandleError(line, $"variável não pode ser chamada de {varName}");
+            return null;
         }
 
         if(!Variables.ContainsKey(varName)){
             //ocorreu erro: variável não definida
             errorHandler.HandleError(line, $"variável {varName} não foi definida");
+            return null;
         }
         
         return Variables[varName];
@@ -222,8 +204,8 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
     public override object? VisitMultiplicativeExpression(CardCodeParser.MultiplicativeExpressionContext context)
     {
         var line = context.Start.Line;
-        var left = context.expression(0);
-        var right = context.expression(1);
+        var left = Visit(context.expression(0));
+        var right = Visit(context.expression(1));
 
         var op = context.multOp().GetText();
 
@@ -238,8 +220,8 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
     public override object? VisitBooleanExpression(CardCodeParser.BooleanExpressionContext context)
     {
         var line = context.Start.Line;
-        var left = context.expression(0);
-        var right = context.expression(1);
+        var left = Visit(context.expression(0));
+        var right = Visit(context.expression(1));
 
         var op = context.boolOp().GetText();
 

@@ -11,6 +11,10 @@ public class AreaWrite : MonoBehaviour, IWritable
     public bool writeNewLine = false;
 
     public void WriteCode(StreamWriter writer){
+        appendLeft.Replace("\n", NewLine);
+        appendRight.Replace("\n", NewLine);
+        if(transform.childCount > 1)
+            appendRight = ";";
         writer.Write(appendLeft);
         foreach(Transform child in transform){
             child.GetComponent<IWritable>()?.WriteCode(writer);

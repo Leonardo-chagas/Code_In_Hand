@@ -11,7 +11,7 @@ public class InputCard : MonoBehaviour
     private List<char> floatChars = new List<char>{'1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '.', '-'};
     private bool isFloat = false;
     public static InputCard instance;
-    GameObject bigCardArea;
+    private GameObject bigCardArea;
     public Color color;
     public Image borders;
     public TMP_Text text;

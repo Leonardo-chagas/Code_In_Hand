@@ -284,8 +284,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: 
   challengeCard: {fileID: 2742374614271518881, guid: 094ebea560cd6834ca750507964b5b33, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!1 &116697533
 GameObject:
   m_ObjectHideFlags: 0
@@ -1070,8 +1072,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: 
   challengeCard: {fileID: 5864127065712573598, guid: 99c103e659a31f34ab2f912296cadf3a, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!1 &481823827
 GameObject:
   m_ObjectHideFlags: 0
@@ -1830,8 +1834,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: desafio7
   challengeCard: {fileID: 995931617072855000, guid: dfcf826be5f5c074d8f5d03e06eeaa53, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!1 &559457772
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,8 +2379,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: desafio2
   challengeCard: {fileID: 2894934844749148150, guid: 379477e187fb13a409d226f1eb94cf98, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!114 &758923235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3250,8 +3258,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: desafio4
   challengeCard: {fileID: 836572831861049059, guid: 0c7153fb9d94c544381f193d381671d4, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!1 &1376663150
 GameObject:
   m_ObjectHideFlags: 0
@@ -4688,8 +4698,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: desafio5
   challengeCard: {fileID: 1217449085214671219, guid: 843e71bd28cf6764897c5086443d85f5, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!1 &1890699416
 GameObject:
   m_ObjectHideFlags: 0
@@ -4973,8 +4985,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: 
   challengeCard: {fileID: 3507285733747217096, guid: 43914e2bf265eb84ba7286cb5c07d961, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!114 &1900571374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5579,8 +5593,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: desafio8
   challengeCard: {fileID: 507727139361558956, guid: b945c79dcd7497e4f841f3a6efb06fc8, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!1 &2114914208
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,8 +5880,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f6b8610bae2b1f4484f5e44340f6589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  challengeToComplete: desafio1
   challengeCard: {fileID: 6634875545766316111, guid: a0a91ac1dc53d284fb7c43251a22a70b, type: 3}
   challengePosition: {fileID: 688658367}
+  completedColor: {r: 0.9056604, g: 0.758645, b: 0.25119257, a: 1}
 --- !u!114 &2132378123
 MonoBehaviour:
   m_ObjectHideFlags: 0

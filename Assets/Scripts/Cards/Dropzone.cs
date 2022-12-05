@@ -8,21 +8,16 @@ public class Dropzone : MonoBehaviour
     private Vector2 startPosition;
     private RectTransform rectTransform;
     private FitContent fitContent;
-    //public static Dropzone instance;
     public GameObject dropzone;
     public GameObject line;
-    public GameObject horizontalScroll;
-    public GameObject verticalScroll;
     float space = 100f;
+
     void Start()
     {
-        //instance = this;
         startPosition = transform.GetChild(0).localPosition;
         print(startPosition);
         rectTransform = GetComponent<RectTransform>();
         fitContent = GetComponent<FitContent>();
-        /* horizontalScroll.SetActive(false);
-        verticalScroll.SetActive(false); */
     }
 
     public void CardAdded(Transform card, Transform currentDropzone, Transform currentDropzoneParent){
@@ -36,24 +31,20 @@ public class Dropzone : MonoBehaviour
         if(currentDropzone.GetSiblingIndex() == 0){
             RaycastHit2D hitDown = Physics2D.Raycast(currentDropzone.position, Vector2.down, 100000, mask);
             if(currentDropzoneParent.GetSiblingIndex() == transform.childCount - 1){
-                //CheckVerticalCard(currentDropzone);
                 GameObject newLine = Instantiate(line);
                 newLine.transform.SetParent(transform, false);
                 GameObject drop = Instantiate(dropzone);
                 drop.transform.SetParent(newLine.transform, false);
-                //drop.transform.position = new Vector3(currentDropzone.position.x, pos.position.y - space, pos.position.z);
             }
         }
 
         //cria área para a direita
         RaycastHit2D hitRight = Physics2D.Raycast(currentDropzone.position, Vector2.right, 100000, mask);
         if(currentDropzone.GetSiblingIndex() == currentDropzoneParent.childCount - 1){
-            //CheckHorizontalCard(currentDropzone);
             GameObject drop = Instantiate(dropzone);
             drop.transform.SetParent(currentDropzoneParent, false);
-            //currentDropzoneParent.GetComponent<EvenChildAmount>()?.ChangePos();
-            //drop.transform.position = new Vector3(currentDropzone.position.x + space, pos.position.y, pos.position.z);
         }
+
         card.SetParent(currentDropzoneParent, false);
         card.SetSiblingIndex(currentDropzone.GetSiblingIndex());
         Destroy(currentDropzone.gameObject);
@@ -63,20 +54,6 @@ public class Dropzone : MonoBehaviour
         float lineWidth = currentDropzoneParent.gameObject.GetComponent<RectTransform>().rect.width;
         float width = cardWidth+lineSpacing+lineWidth;
         fitContent.Fit(width);
-    }
-
-    private void CheckVerticalCard(Transform obj){
-        if(obj.localPosition.y - space < rectTransform.rect.height/2 - 30){
-            rectTransform.offsetMin = Vector2.down * (space + 30);
-            verticalScroll.SetActive(true);
-        }
-    }
-
-    private void CheckHorizontalCard(Transform obj){
-        if(obj.localPosition.x + space > rectTransform.rect.width/2 - 30){
-            rectTransform.offsetMax = Vector2.right * (space + 30);
-            horizontalScroll.SetActive(true);
-        }
     }
 
     public void CardRemoved(Transform card){
