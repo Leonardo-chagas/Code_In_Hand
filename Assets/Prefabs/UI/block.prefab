@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8470485055302306848}
   - component: {fileID: 4691153172427693098}
   - component: {fileID: 5264792153839676009}
+  - component: {fileID: 1491047785454078941}
   m_Layer: 5
   m_Name: block
   m_TagString: Untagged
@@ -36,11 +37,11 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: -65, y: 50}
+  m_SizeDelta: {x: 130, y: 100}
+  m_Pivot: {x: 0, y: 1}
 --- !u!114 &7778669805444998548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -74,12 +75,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201529814909164488}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
+  m_HorizontalFit: 0
   m_VerticalFit: 2
 --- !u!114 &4691153172427693098
 MonoBehaviour:
@@ -93,9 +94,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8cc201a0c4245b4b82c157ce0719ff3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  appendLeft: '{\n'
-  appendRight: '}\n'
-  writeNewLine: 0
+  appendLeft: '{'
+  appendRight: '}'
+  writeNewLineLeft: 1
+  writeNewLineRight: 1
 --- !u!114 &5264792153839676009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -110,6 +112,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dropzone: {fileID: 8940261656516475044, guid: 5e6cb1a0b915b2c41b9d81d25604211e, type: 3}
   line: {fileID: 8479448132540871905, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
+--- !u!114 &1491047785454078941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201529814909164488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db1f1d47e409db9408beff9e4f1980ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3518617557591540158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -216,7 +230,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_Pivot.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_Pivot.y
@@ -280,7 +294,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 85061840339381008, guid: 456fe2ae8f2dc9544a8d4bc43a0b1965, type: 3}
       propertyPath: m_AnchoredPosition.y

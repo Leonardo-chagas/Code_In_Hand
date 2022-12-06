@@ -1,1 +1,1 @@
-4
+essa variável é maior que 3

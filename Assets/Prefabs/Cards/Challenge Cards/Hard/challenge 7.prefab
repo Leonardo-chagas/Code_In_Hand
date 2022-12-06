@@ -11,6 +11,114 @@ PrefabInstance:
       propertyPath: id
       value: desafio7
       objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectation
+      value: "essa vari\xE1vel \xE9 maior que 3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[0]
+      value: VAR=5;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[1]
+      value: IFVAR>3{
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[0].cardName
+      value: var card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[1].cardName
+      value: assign card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[2].cardName
+      value: int card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[3].cardName
+      value: float card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[4].cardName
+      value: string card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[5].cardName
+      value: if card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[6].cardName
+      value: print card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[7].cardName
+      value: greater than card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[8].cardName
+      value: equals card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[9].cardName
+      value: less than card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.data[0]
+      value: "essa vari\xE1vel \xE9 maior que 3"
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[0].cardAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[1].cardAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[2].cardAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[3].cardAmount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[4].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[5].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[6].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[7].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[8].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[9].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3849591959125104577, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Name
       value: challenge 7
@@ -18,6 +126,16 @@ PrefabInstance:
     - target: {fileID: 5181491440690397987, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_text
       value: "Desafio Dif\xEDcil"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_text
+      value: "Crie um programa qye receba uma vari\xE1vel com valor int 5 e utilizando
+        um bloco de if verifique se a vari\xE1vel \xE9 maior que 3 e se for printe
+        a string \"essa vari\xE1vel \xE9 maior que 3\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_fontSize
+      value: 8.05
       objectReference: {fileID: 0}
     - target: {fileID: 8270031416301560303, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Pivot.x

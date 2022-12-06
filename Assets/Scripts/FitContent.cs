@@ -8,6 +8,7 @@ public class FitContent : MonoBehaviour
     private VerticalLayoutGroup layoutGroup;
     private float spacing;
     private float childHeight;
+    private float paddingLeft;
     private RectTransform rectTransform;
     
     void Start()
@@ -16,12 +17,12 @@ public class FitContent : MonoBehaviour
         rectTransform = GetComponent<RectTransform>();
         spacing = layoutGroup.spacing;
         childHeight = transform.GetChild(0).GetComponent<RectTransform>().rect.height;
+        paddingLeft = layoutGroup.padding.left;
     }
 
     public void Fit(float width){
-        //float width = cardWidth + lineSpacing ;
         if(width >= rectTransform.rect.width)
-            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width+paddingLeft);
         float newHeight = (childHeight*transform.childCount) + (spacing*(transform.childCount-1));
         rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, newHeight);
     }

@@ -3,7 +3,7 @@ desafio2|1|true|
 desafio3|1|true|
 desafio4|11|true|
 desafio5|13|true|
-desafio6|0|false|
-desafio7|0|false|
+desafio6|1|true|
+desafio7|8|true|
 desafio8|0|false|
 desafio9|0|false|

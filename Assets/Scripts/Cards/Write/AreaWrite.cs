@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using static System.Environment;
 using System.Collections;
@@ -8,19 +9,29 @@ public class AreaWrite : MonoBehaviour, IWritable
 {
     public string appendLeft = "";
     public string appendRight = "";
-    public bool writeNewLine = false;
+    public bool writeNewLineLeft = false;
+    public bool writeNewLineRight = false;
+    private bool isDropzone;
+
+    void Start(){
+        isDropzone = GetComponent<Dropzone>() != null ? true : false;
+    }
 
     public void WriteCode(StreamWriter writer){
-        appendLeft.Replace("\n", NewLine);
-        appendRight.Replace("\n", NewLine);
-        if(transform.childCount > 1)
+        if(transform.childCount > 1 && !isDropzone)
             appendRight = ";";
+
         writer.Write(appendLeft);
+        if(writeNewLineLeft)
+            writer.Write(NewLine);
+
         foreach(Transform child in transform){
             child.GetComponent<IWritable>()?.WriteCode(writer);
         }
+
         writer.Write(appendRight);
-        if(writeNewLine){
+
+        if(writeNewLineRight){
             writer.Write(NewLine);
         }
     }

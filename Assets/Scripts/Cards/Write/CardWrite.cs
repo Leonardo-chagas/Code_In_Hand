@@ -30,9 +30,12 @@ public class CardWrite : MonoBehaviour, IWritable
                     areaWrite.appendRight = ")" + areaWrite.appendRight;
                 }
                 if(cardText == "IF" || cardText == "ELSE"){
-                    appendRight = "(";
                     AreaWrite areaWrite = transform.parent.GetComponent<AreaWrite>();
-                    areaWrite.appendRight = ")";
+                    areaWrite.writeNewLineRight = false;
+                    areaWrite.appendRight = "";
+                    /* appendRight = "(";
+                    AreaWrite areaWrite = transform.parent.GetComponent<AreaWrite>();
+                    areaWrite.appendRight = ")"; */
                 }
             }
         }

@@ -79,7 +79,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   appendLeft: 
   appendRight: 
-  writeNewLine: 1
+  writeNewLineLeft: 0
+  writeNewLineRight: 1
 --- !u!114 &2875418751106413734
 MonoBehaviour:
   m_ObjectHideFlags: 0

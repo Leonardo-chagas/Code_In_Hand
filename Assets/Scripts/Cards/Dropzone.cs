@@ -23,14 +23,12 @@ public class Dropzone : MonoBehaviour
     public void CardAdded(Transform card, Transform currentDropzone, Transform currentDropzoneParent){
         Transform pos = currentDropzone;
         
-        int mask = 1 << LayerMask.NameToLayer("Dropzone");
-        int mask2 = 1 << LayerMask.NameToLayer("Card");
-        int bothMasks = mask | mask2;
-        
         //cria área para baixo
         if(currentDropzone.GetSiblingIndex() == 0){
-            RaycastHit2D hitDown = Physics2D.Raycast(currentDropzone.position, Vector2.down, 100000, mask);
-            if(currentDropzoneParent.GetSiblingIndex() == transform.childCount - 1){
+            print("primeiro sibling");
+            if(currentDropzoneParent.GetSiblingIndex() == transform.childCount - 1 ||
+            (currentDropzoneParent.GetSiblingIndex() == transform.childCount - 2 && transform.GetChild(transform.childCount-1).name == "block(Clone)")){
+                print("nova linha");
                 GameObject newLine = Instantiate(line);
                 newLine.transform.SetParent(transform, false);
                 GameObject drop = Instantiate(dropzone);
@@ -39,7 +37,6 @@ public class Dropzone : MonoBehaviour
         }
 
         //cria área para a direita
-        RaycastHit2D hitRight = Physics2D.Raycast(currentDropzone.position, Vector2.right, 100000, mask);
         if(currentDropzone.GetSiblingIndex() == currentDropzoneParent.childCount - 1){
             GameObject drop = Instantiate(dropzone);
             drop.transform.SetParent(currentDropzoneParent, false);
