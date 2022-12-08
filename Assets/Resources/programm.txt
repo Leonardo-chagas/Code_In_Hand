@@ -1,6 +1,6 @@
-x=1;
-IFx>3{
-PRINT("essa variável é maior que 3");
+IF 1>5;
+ {
+PRINT("passou pelo if");
 
 }
 

@@ -13,14 +13,16 @@ public class DragDrop : MonoBehaviour
     private Dropzone droparea;
     private TMP_Text text;
     private RectTransform rectTransform;
+    private GameObject mainCanvas;
     private string startText;
-    private float width;
     private float height;
+    [HideInInspector]public float width;
 
     void Awake(){
         rectTransform = GetComponent<RectTransform>();
         width = rectTransform.rect.width;
         height = rectTransform.rect.height;
+        //mainCanvas = GameObject.Find("Main Canvas");
     }
     
     void Start()
@@ -69,15 +71,17 @@ public class DragDrop : MonoBehaviour
         isDragging = false;
         if(dropZone && droparea){
             gameObject.GetComponent<IPlaceable>()?.PlaceCard();
-            droparea.CardAdded(transform, dropZone, dropZoneParent);
+            /* transform.SetParent(mainCanvas.transform, false);
             rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, width);
-            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height);
+            rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, height); */
+            droparea.CardAdded(transform, dropZone, dropZoneParent);
         }
         else{
             transform.position = startPosition;
             transform.SetParent(startParent.transform, false);
         }
     }
+
 
     void OnTriggerEnter2D(Collider2D col){
         if(col.gameObject.CompareTag("dropzone")){

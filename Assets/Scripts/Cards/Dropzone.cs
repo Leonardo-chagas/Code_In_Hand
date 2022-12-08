@@ -8,12 +8,14 @@ public class Dropzone : MonoBehaviour
     private Vector2 startPosition;
     private RectTransform rectTransform;
     private FitContent fitContent;
+    private FitChildren parentFitter;
     public GameObject dropzone;
     public GameObject line;
     float space = 100f;
 
     void Start()
     {
+        parentFitter = GameObject.Find("DropArea").GetComponent<FitChildren>();
         startPosition = transform.GetChild(0).localPosition;
         print(startPosition);
         rectTransform = GetComponent<RectTransform>();
@@ -46,11 +48,12 @@ public class Dropzone : MonoBehaviour
         card.SetSiblingIndex(currentDropzone.GetSiblingIndex());
         Destroy(currentDropzone.gameObject);
 
-        float cardWidth = card.gameObject.GetComponent<RectTransform>().rect.width;
+        float cardWidth = card.gameObject.GetComponent<DragDrop>().width;
         float lineSpacing = currentDropzoneParent.gameObject.GetComponent<HorizontalLayoutGroup>().spacing;
         float lineWidth = currentDropzoneParent.gameObject.GetComponent<RectTransform>().rect.width;
         float width = cardWidth+lineSpacing+lineWidth;
-        fitContent.Fit(width);
+        //fitContent.Fit(width);
+        parentFitter.Fit(width);
     }
 
     public void CardRemoved(Transform card){

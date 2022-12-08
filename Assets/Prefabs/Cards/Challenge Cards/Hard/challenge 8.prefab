@@ -19,6 +19,17 @@ PrefabInstance:
       propertyPath: m_text
       value: "Desafio Dif\xEDcil"
       objectReference: {fileID: 0}
+    - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_text
+      value: "crie um programa que receba uma vari\xE1vel com valor int 5, e utilizando
+        um bloco if verifique se a vari\xE1vel \xE9 par e se for escreva a string
+        \"vari\xE1vel \xE9 par\", caso n\xE3o seja utilize um bloco else para escrever
+        a string \"vari\xE1vel \xE9 \xEDmpar\""
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_fontSize
+      value: 7.3
+      objectReference: {fileID: 0}
     - target: {fileID: 8270031416301560303, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

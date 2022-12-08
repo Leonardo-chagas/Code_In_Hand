@@ -65,6 +65,10 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         }
 
         var value = Visit(context.expression());
+        if(value == null){
+            errorHandler.HandleError(line, $"nenhuma expressão foi passada para a variável {varName}");
+            return null;
+        }
         
 
         Variables[varName] = value;
@@ -122,6 +126,11 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         var left = Visit(context.expression(0));
         var right = Visit(context.expression(1));
 
+        if(left == null || right == null){
+            errorHandler.HandleError(line, "um dos valores da espressão de adição ou subtração não foi definido");
+            return null;
+        }
+
         var op = context.addOp().GetText();
 
         return op switch{
@@ -168,17 +177,30 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
     public override object? VisitIfBlock(CardCodeParser.IfBlockContext context)
     {
+        StreamWriter writer = new StreamWriter("Assets/Resources/info.txt");
+        writer.Write("visitou if");
         var line = context.Start.Line;
         var exp = Visit(context.expression());
+        
+
         if(exp == null){
             errorHandler.HandleError(line, "Nenhuma expressão foi passada para o if");
+            return null;
         }
+
         if(IsTrue(exp, line)){
+            //throw new Exception("passou pelo if");
+            writer.WriteLine("passou pelo if");
             Visit(context.block(0));
         }
         else{
-            Visit(context.block(1));
+            //throw new Exception("passou pelo else");
+            writer.WriteLine("passou pelo else");
+            if(context.ELSE() != null){
+                Visit(context.block(1));
+            }
         }
+        writer.Close();
         return null;
     }
 
@@ -187,6 +209,11 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         var line = context.Start.Line;
         var left = Visit(context.expression(0));
         var right = Visit(context.expression(1));
+
+        if(left == null || right == null){
+            errorHandler.HandleError(line, "um dos valores da expressão de comparação não foi definido");
+            return null;
+        }
 
         var op = context.compareOp().GetText();
 
@@ -207,6 +234,11 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         var left = Visit(context.expression(0));
         var right = Visit(context.expression(1));
 
+        if(left == null || right == null){
+            errorHandler.HandleError(line, "um dos valores da expressão de multiplicação ou divisão não foi definido");
+            return null;
+        }
+
         var op = context.multOp().GetText();
 
         return op switch{
@@ -222,6 +254,11 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
         var line = context.Start.Line;
         var left = Visit(context.expression(0));
         var right = Visit(context.expression(1));
+
+        if(left == null || right == null){
+            errorHandler.HandleError(line, "um dos valores da expressão booleana não foi definido");
+            return null;
+        }
 
         var op = context.boolOp().GetText();
 

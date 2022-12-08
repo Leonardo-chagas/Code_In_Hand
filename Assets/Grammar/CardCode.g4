@@ -9,7 +9,9 @@ statement: (assignment|functionCall) ';';
 functionCall: IDENTIFIER '(' (expression (',' expression)*)? ')';
 
 //ifBlock: 'if' expression block ('else' block)?;
-ifBlock: 'IF' expression block ('ELSE' block)?;
+ifBlock: IF expression block (ELSE block)?;
+IF: 'IF';
+ELSE: 'ELSE';
 
 //printCall: 'print(' expression ')';
 //printCall: 'PRINT' expression;

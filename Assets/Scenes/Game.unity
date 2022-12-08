@@ -2401,6 +2401,7 @@ GameObject:
   - component: {fileID: 1014001431}
   - component: {fileID: 1014001432}
   - component: {fileID: 1014001433}
+  - component: {fileID: 1014001434}
   m_Layer: 5
   m_Name: DropArea
   m_TagString: Untagged
@@ -2493,6 +2494,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: db1f1d47e409db9408beff9e4f1980ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1014001434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1014001428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 495eaa8a5c060634bbc5a949e67b4d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1029766242
@@ -2978,7 +2991,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.800205, y: -203.59792}
+  m_AnchoredPosition: {x: 14.800205, y: -174}
   m_SizeDelta: {x: 792.7852, y: 87.6172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1157291345
@@ -3026,8 +3039,8 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 30}
-  m_Spacing: {x: 0, y: 0}
+  m_CellSize: {x: 82.5, y: 112.5}
+  m_Spacing: {x: 0, y: -85}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &1168629484

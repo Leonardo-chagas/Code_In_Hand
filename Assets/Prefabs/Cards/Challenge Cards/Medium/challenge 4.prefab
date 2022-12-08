@@ -102,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_text
       value: "Crie um programa que receba uma vari\xE1vel com valor float 2.5 e uma
-        vari\xE1vel com valor int 3 e printe a multiplica\xE7\xE3o entre elas"
+        vari\xE1vel com valor int 3 e escreve a multiplica\xE7\xE3o entre elas"
       objectReference: {fileID: 0}
     - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_fontSize

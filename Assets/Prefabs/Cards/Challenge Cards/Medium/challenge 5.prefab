@@ -134,7 +134,7 @@ PrefabInstance:
     - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_text
       value: "Crie um programa que receba 2 vari\xE1veis com valores float 3.7 e
-        4.3  respectivamente e printe a soma dessas vari\xE1veis dividido pelo valor
+        4.3  respectivamente e escreve a soma dessas vari\xE1veis dividido pelo valor
         int 2"
       objectReference: {fileID: 0}
     - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}

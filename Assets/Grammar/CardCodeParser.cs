@@ -38,8 +38,8 @@ public partial class CardCodeParser : Parser {
 	public const int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, T__16=17, 
-		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, INTEGER=24, 
-		FLOAT=25, STRING=26, BOOL=27, NULL=28, WS=29, IDENTIFIER=30;
+		T__17=18, T__18=19, T__19=20, T__20=21, IF=22, ELSE=23, INTEGER=24, FLOAT=25, 
+		STRING=26, BOOL=27, NULL=28, WS=29, IDENTIFIER=30;
 	public const int
 		RULE_program = 0, RULE_line = 1, RULE_statement = 2, RULE_functionCall = 3, 
 		RULE_ifBlock = 4, RULE_expression = 5, RULE_multOp = 6, RULE_addOp = 7, 
@@ -51,13 +51,13 @@ public partial class CardCodeParser : Parser {
 	};
 
 	private static readonly string[] _LiteralNames = {
-		null, "';'", "'('", "','", "')'", "'IF'", "'ELSE'", "'!'", "'*'", "'/'", 
-		"'%'", "'+'", "'-'", "'=='", "'!='", "'>'", "'<'", "'>='", "'<='", "'and'", 
-		"'or'", "'{'", "'}'", "'='", null, null, null, null, "'null'"
+		null, "';'", "'('", "','", "')'", "'!'", "'*'", "'/'", "'%'", "'+'", "'-'", 
+		"'=='", "'!='", "'>'", "'<'", "'>='", "'<='", "'and'", "'or'", "'{'", 
+		"'}'", "'='", "'IF'", "'ELSE'", null, null, null, null, "'null'"
 	};
 	private static readonly string[] _SymbolicNames = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, null, null, null, null, null, null, null, 
+		null, null, null, null, null, null, null, null, null, null, "IF", "ELSE", 
 		"INTEGER", "FLOAT", "STRING", "BOOL", "NULL", "WS", "IDENTIFIER"
 	};
 	public static readonly IVocabulary DefaultVocabulary = new Vocabulary(_LiteralNames, _SymbolicNames);
@@ -134,7 +134,7 @@ public partial class CardCodeParser : Parser {
 			State = 29;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			while (_la==T__4 || _la==IDENTIFIER) {
+			while (_la==IF || _la==IDENTIFIER) {
 				{
 				{
 				State = 26;
@@ -205,7 +205,7 @@ public partial class CardCodeParser : Parser {
 				statement();
 				}
 				break;
-			case T__4:
+			case IF:
 				EnterOuterAlt(_localctx, 2);
 				{
 				State = 35;
@@ -341,7 +341,7 @@ public partial class CardCodeParser : Parser {
 			State = 54;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__6) | (1L << INTEGER) | (1L << FLOAT) | (1L << STRING) | (1L << BOOL) | (1L << NULL) | (1L << IDENTIFIER))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__1) | (1L << T__4) | (1L << INTEGER) | (1L << FLOAT) | (1L << STRING) | (1L << BOOL) | (1L << NULL) | (1L << IDENTIFIER))) != 0)) {
 				{
 				State = 46;
 				expression(0);
@@ -380,6 +380,7 @@ public partial class CardCodeParser : Parser {
 	}
 
 	public partial class IfBlockContext : ParserRuleContext {
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode IF() { return GetToken(CardCodeParser.IF, 0); }
 		[System.Diagnostics.DebuggerNonUserCode] public ExpressionContext expression() {
 			return GetRuleContext<ExpressionContext>(0);
 		}
@@ -389,6 +390,7 @@ public partial class CardCodeParser : Parser {
 		[System.Diagnostics.DebuggerNonUserCode] public BlockContext block(int i) {
 			return GetRuleContext<BlockContext>(i);
 		}
+		[System.Diagnostics.DebuggerNonUserCode] public ITerminalNode ELSE() { return GetToken(CardCodeParser.ELSE, 0); }
 		public IfBlockContext(ParserRuleContext parent, int invokingState)
 			: base(parent, invokingState)
 		{
@@ -421,7 +423,7 @@ public partial class CardCodeParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			State = 58;
-			Match(T__4);
+			Match(IF);
 			State = 59;
 			expression(0);
 			State = 60;
@@ -429,10 +431,10 @@ public partial class CardCodeParser : Parser {
 			State = 63;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if (_la==T__5) {
+			if (_la==ELSE) {
 				{
 				State = 61;
-				Match(T__5);
+				Match(ELSE);
 				State = 62;
 				block();
 				}
@@ -750,7 +752,7 @@ public partial class CardCodeParser : Parser {
 				Context = _localctx;
 				_prevctx = _localctx;
 				State = 73;
-				Match(T__6);
+				Match(T__4);
 				State = 74;
 				expression(5);
 				}
@@ -871,7 +873,7 @@ public partial class CardCodeParser : Parser {
 			{
 			State = 98;
 			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__7) | (1L << T__8) | (1L << T__9))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__5) | (1L << T__6) | (1L << T__7))) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -925,7 +927,7 @@ public partial class CardCodeParser : Parser {
 			{
 			State = 100;
 			_la = TokenStream.LA(1);
-			if ( !(_la==T__10 || _la==T__11) ) {
+			if ( !(_la==T__8 || _la==T__9) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -979,7 +981,7 @@ public partial class CardCodeParser : Parser {
 			{
 			State = 102;
 			_la = TokenStream.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15))) != 0)) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -1033,7 +1035,7 @@ public partial class CardCodeParser : Parser {
 			{
 			State = 104;
 			_la = TokenStream.LA(1);
-			if ( !(_la==T__18 || _la==T__19) ) {
+			if ( !(_la==T__16 || _la==T__17) ) {
 			ErrorHandler.RecoverInline(this);
 			}
 			else {
@@ -1151,11 +1153,11 @@ public partial class CardCodeParser : Parser {
 			EnterOuterAlt(_localctx, 1);
 			{
 			State = 108;
-			Match(T__20);
+			Match(T__18);
 			State = 112;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			while (_la==T__4 || _la==IDENTIFIER) {
+			while (_la==IF || _la==IDENTIFIER) {
 				{
 				{
 				State = 109;
@@ -1167,7 +1169,7 @@ public partial class CardCodeParser : Parser {
 				_la = TokenStream.LA(1);
 			}
 			State = 115;
-			Match(T__21);
+			Match(T__19);
 			}
 		}
 		catch (RecognitionException re) {
@@ -1219,7 +1221,7 @@ public partial class CardCodeParser : Parser {
 			State = 117;
 			Match(IDENTIFIER);
 			State = 118;
-			Match(T__22);
+			Match(T__20);
 			State = 119;
 			expression(0);
 			}
@@ -1278,8 +1280,8 @@ public partial class CardCodeParser : Parser {
 		't', '\v', '\r', '\x3', '\r', '\x3', '\r', '\x3', '\xE', '\x3', '\xE', 
 		'\x3', '\xE', '\x3', '\xE', '\x3', '\xE', '\x2', '\x3', '\f', '\xF', '\x2', 
 		'\x4', '\x6', '\b', '\n', '\f', '\xE', '\x10', '\x12', '\x14', '\x16', 
-		'\x18', '\x1A', '\x2', '\a', '\x3', '\x2', '\n', '\f', '\x3', '\x2', '\r', 
-		'\xE', '\x3', '\x2', '\xF', '\x14', '\x3', '\x2', '\x15', '\x16', '\x3', 
+		'\x18', '\x1A', '\x2', '\a', '\x3', '\x2', '\b', '\n', '\x3', '\x2', '\v', 
+		'\f', '\x3', '\x2', '\r', '\x12', '\x3', '\x2', '\x13', '\x14', '\x3', 
 		'\x2', '\x1A', '\x1E', '\x2', '}', '\x2', '\x1F', '\x3', '\x2', '\x2', 
 		'\x2', '\x4', '&', '\x3', '\x2', '\x2', '\x2', '\x6', '*', '\x3', '\x2', 
 		'\x2', '\x2', '\b', '.', '\x3', '\x2', '\x2', '\x2', '\n', '<', '\x3', 
@@ -1308,16 +1310,16 @@ public partial class CardCodeParser : Parser {
 		'\x35', '\x3', '\x2', '\x2', '\x2', '\x38', '\x30', '\x3', '\x2', '\x2', 
 		'\x2', '\x38', '\x39', '\x3', '\x2', '\x2', '\x2', '\x39', ':', '\x3', 
 		'\x2', '\x2', '\x2', ':', ';', '\a', '\x6', '\x2', '\x2', ';', '\t', '\x3', 
-		'\x2', '\x2', '\x2', '<', '=', '\a', '\a', '\x2', '\x2', '=', '>', '\x5', 
+		'\x2', '\x2', '\x2', '<', '=', '\a', '\x18', '\x2', '\x2', '=', '>', '\x5', 
 		'\f', '\a', '\x2', '>', '\x41', '\x5', '\x18', '\r', '\x2', '?', '@', 
-		'\a', '\b', '\x2', '\x2', '@', '\x42', '\x5', '\x18', '\r', '\x2', '\x41', 
+		'\a', '\x19', '\x2', '\x2', '@', '\x42', '\x5', '\x18', '\r', '\x2', '\x41', 
 		'?', '\x3', '\x2', '\x2', '\x2', '\x41', '\x42', '\x3', '\x2', '\x2', 
 		'\x2', '\x42', '\v', '\x3', '\x2', '\x2', '\x2', '\x43', '\x44', '\b', 
 		'\a', '\x1', '\x2', '\x44', 'N', '\x5', '\x16', '\f', '\x2', '\x45', 'N', 
 		'\a', ' ', '\x2', '\x2', '\x46', 'N', '\x5', '\b', '\x5', '\x2', 'G', 
 		'H', '\a', '\x4', '\x2', '\x2', 'H', 'I', '\x5', '\f', '\a', '\x2', 'I', 
 		'J', '\a', '\x6', '\x2', '\x2', 'J', 'N', '\x3', '\x2', '\x2', '\x2', 
-		'K', 'L', '\a', '\t', '\x2', '\x2', 'L', 'N', '\x5', '\f', '\a', '\a', 
+		'K', 'L', '\a', '\a', '\x2', '\x2', 'L', 'N', '\x5', '\f', '\a', '\a', 
 		'M', '\x43', '\x3', '\x2', '\x2', '\x2', 'M', '\x45', '\x3', '\x2', '\x2', 
 		'\x2', 'M', '\x46', '\x3', '\x2', '\x2', '\x2', 'M', 'G', '\x3', '\x2', 
 		'\x2', '\x2', 'M', 'K', '\x3', '\x2', '\x2', '\x2', 'N', '\x61', '\x3', 
@@ -1340,12 +1342,12 @@ public partial class CardCodeParser : Parser {
 		'\x4', '\x2', '\x2', 'i', '\x13', '\x3', '\x2', '\x2', '\x2', 'j', 'k', 
 		'\t', '\x5', '\x2', '\x2', 'k', '\x15', '\x3', '\x2', '\x2', '\x2', 'l', 
 		'm', '\t', '\x6', '\x2', '\x2', 'm', '\x17', '\x3', '\x2', '\x2', '\x2', 
-		'n', 'r', '\a', '\x17', '\x2', '\x2', 'o', 'q', '\x5', '\x4', '\x3', '\x2', 
+		'n', 'r', '\a', '\x15', '\x2', '\x2', 'o', 'q', '\x5', '\x4', '\x3', '\x2', 
 		'p', 'o', '\x3', '\x2', '\x2', '\x2', 'q', 't', '\x3', '\x2', '\x2', '\x2', 
 		'r', 'p', '\x3', '\x2', '\x2', '\x2', 'r', 's', '\x3', '\x2', '\x2', '\x2', 
 		's', 'u', '\x3', '\x2', '\x2', '\x2', 't', 'r', '\x3', '\x2', '\x2', '\x2', 
-		'u', 'v', '\a', '\x18', '\x2', '\x2', 'v', '\x19', '\x3', '\x2', '\x2', 
-		'\x2', 'w', 'x', '\a', ' ', '\x2', '\x2', 'x', 'y', '\a', '\x19', '\x2', 
+		'u', 'v', '\a', '\x16', '\x2', '\x2', 'v', '\x19', '\x3', '\x2', '\x2', 
+		'\x2', 'w', 'x', '\a', ' ', '\x2', '\x2', 'x', 'y', '\a', '\x17', '\x2', 
 		'\x2', 'y', 'z', '\x5', '\f', '\a', '\x2', 'z', '\x1B', '\x3', '\x2', 
 		'\x2', '\x2', '\f', '\x1F', '&', '*', '\x35', '\x38', '\x41', 'M', '_', 
 		'\x61', 'r',

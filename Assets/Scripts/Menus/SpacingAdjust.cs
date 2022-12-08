@@ -9,7 +9,7 @@ public class SpacingAdjust : MonoBehaviour
     private GridLayoutGroup layoutGroup;
     private int amountToReadjust = -4;
     private int cardsUntilReadjust = 8;
-    private int minSpacing = -60;
+    private int minSpacing = -40;
     
     void Start()
     {
