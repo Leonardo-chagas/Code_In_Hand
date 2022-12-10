@@ -1,6 +1,2 @@
-IF 1>5;
- {
-PRINT("passou pelo if");
-
-}
+PRINT("hello world");
 

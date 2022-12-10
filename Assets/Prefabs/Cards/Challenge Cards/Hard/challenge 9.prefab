@@ -11,6 +11,178 @@ PrefabInstance:
       propertyPath: id
       value: desafio9
       objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectation
+      value: 2.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.size
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[0]
+      value: VAR=3.5;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[1]
+      value: VAR=7;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[2]
+      value: VAR=true;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: IF VAR {|IF VAR==true {|IF true==VAR {
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[0].cardName
+      value: var card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[1].cardName
+      value: assign card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[2].cardName
+      value: plus card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[3].cardName
+      value: minus card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[4].cardName
+      value: multiply card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[5].cardName
+      value: divide card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[6].cardName
+      value: if card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[7].cardName
+      value: else card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[8].cardName
+      value: equals card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[9].cardName
+      value: greater than or equals card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.data[0]
+      value: 2.0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.data[1]
+      value: 2,0
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: expectedOutput.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[10].cardName
+      value: less than or equals card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[11].cardName
+      value: print card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[12].cardName
+      value: float card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[13].cardName
+      value: int card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[14].cardName
+      value: string card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[15].cardName
+      value: bool card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[0].cardAmount
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[1].cardAmount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[2].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[3].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[4].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[5].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[6].cardAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[7].cardAmount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[8].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[9].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[10].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[11].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[12].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[13].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[14].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[15].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3849591959125104577, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Name
       value: challenge 9
@@ -21,7 +193,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_text
-      value: Crie um programa que receba
+      value: "Crie um programa que receba 3 vari\xE1veis, uma com valor float 3.5,
+        uma com valor int 7 e uma com valor bool true, respectivamente. Utilizando
+        um bloco de if, verifique se a vari\xE1vel com o valor booleano \xE9 verdadeira,
+        e se for, escreva o resultado da vari\xE1vel com o valor int divida pela
+        vari\xE1vel com o valor float"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6120421125549002530, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: m_fontSize
+      value: 6.2
       objectReference: {fileID: 0}
     - target: {fileID: 8270031416301560303, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Pivot.x

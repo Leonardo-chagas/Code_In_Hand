@@ -10,7 +10,7 @@ using TMPro;
 
 public class RunCode : MonoBehaviour
 {
-    private string path, dataPath, outputPath, logPath;
+    private string path, dataPath, outputPath, logPath, currentError;
     private bool completedChallenge = false;
     private int challengeIndex;
     private Transform dropArea;
@@ -33,6 +33,7 @@ public class RunCode : MonoBehaviour
 
 
     public void Run(){
+        currentError = "";
         //limpar dicionário?
         //GameManager.instance.variables.Clear();
         WriteProgram();
@@ -57,6 +58,7 @@ public class RunCode : MonoBehaviour
             //StreamReader reader = new StreamReader(logPath);
             string line = logContent[0];
             string error = logContent[1];
+            currentError = error;
             loseScreen.SetActive(true);
             loseText.text = $"Erro na linha {line}: {error}";
             //reader.Close();
@@ -72,6 +74,7 @@ public class RunCode : MonoBehaviour
             else{
                 StreamReader reader = new StreamReader(logPath);
                 string error = reader.ReadToEnd();
+                currentError = error;
                 loseScreen.SetActive(true);
                 loseText.text = error;
             }
@@ -104,6 +107,7 @@ public class RunCode : MonoBehaviour
                     string completed = completedChallenge ? "true" : "false";
                     currentLine[1] = (Convert.ToInt32(currentLine[1]) + 1).ToString();
                     currentLine[2] = completed;
+                    currentLine[3] = currentError != "" ? currentLine[3]+currentError+"," : currentLine[3];
 
                     string newLine = string.Join("|", currentLine, 0, currentLine.Length);
 

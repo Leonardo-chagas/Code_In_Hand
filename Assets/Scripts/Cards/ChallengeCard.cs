@@ -60,50 +60,32 @@ public class ChallengeCard : MonoBehaviour
 
     public void CheckCode(){
         hasStructure = false;
-        //var reader = new StreamReader(path);
-        //string line;
         IEnumerable<string> variables = GameManager.instance.variables.Keys.ToList();
-        /* foreach(string e in variables)
-            print(e); */
+        
         string[] code = File.ReadAllLines(path);
         List<string> lines = new List<string>(code);
         Dictionary<string, int> structureCopy = new Dictionary<string, int>(structure);
-        /* List<List<string>> combinations = ProduceEnumeration(variables).ToList();
-        foreach(List<string> item in combinations){
-            print(item.Count);
-        } */
-        
 
         //verifica se o programa possui todos os elementos necessários
         foreach(string key in structureCopy.Keys){
             
             //bloco que faz match se tiver variável
             if(key.Contains("VAR")){
-                //print(key);
                 int cont = 1;
                 foreach(string line in lines){
-                    //print(line);
                     bool matched = false;
-                    if(key.Contains("VAR")){
-                        string[] splitString = key.Split(new[] {"VAR"}, StringSplitOptions.None);
-                        //print(splitString.Length);
-                        /* foreach(string i in splitString)
-                            print(i); */
+                    string[] splitKey = key.Split('|', StringSplitOptions.None);
+
+                    foreach(string option in splitKey){
+                        string[] splitString = option.Split(new[] {"VAR"}, StringSplitOptions.None);
                         
                         IEnumerable<IEnumerable<string>> permutations = GetPermutations(variables, splitString.Length-1);
-                        /* List<List<string>> combs = new List<List<string>>();
-                        foreach(List<string> combination in combinations){
-                            if(combination.Count == splitString.Length-1)
-                                combs.Add(combination);
-                        } */
 
                         foreach(IEnumerable<string> i in permutations){
                             string result = "";
                             int count = 0;
-                            //print(i);
 
                             foreach(string value in i){
-                                //print(value);
                                 if(count==0){
                                     result = result + string.Join(value, splitString, count, 2);
                                     count+=2;
@@ -113,10 +95,7 @@ public class ChallengeCard : MonoBehaviour
                                     result = result+splitString[count];
                                     count++;
                                 }
-                                //print(string.Join(value, splitString, count, 2));
                             }
-                            print(RemoveDiacritics(result).ToLower().Trim());
-                            print(RemoveDiacritics(line).ToLower().Trim());
                             line.Replace("\u200B", "");
                             result.Replace("\u200B", "");
                             if(RemoveDiacritics(result).ToLower().Trim() == RemoveDiacritics(line).ToLower().Trim() &&
@@ -128,21 +107,20 @@ public class ChallengeCard : MonoBehaviour
                                 break;
                             }
                         }
+                        if(matched)
+                            break;
                     }
-                    if(matched){
+                    if(matched)
                         break;
-                    }
                     cont++;
                 }
             }
             //bloco que faz match se não tiver variável
             else{
                 foreach(string line in lines){
-                    print(line);
                     int cont = 1;
                     if(RemoveDiacritics(key).ToLower().Trim() == RemoveDiacritics(line).ToLower().Trim()){
                         structure[key] = cont;
-                        print("achou linha");
                         break;
                     }
                     cont++;
