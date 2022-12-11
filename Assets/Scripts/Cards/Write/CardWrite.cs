@@ -29,7 +29,7 @@ public class CardWrite : MonoBehaviour, IWritable
                     AreaWrite areaWrite = transform.parent.GetComponent<AreaWrite>();
                     areaWrite.appendRight = ")" + areaWrite.appendRight;
                 }
-                if(cardText == "IF" || cardText == "ELSE"){
+                if(cardText == "IF " || cardText == "ELSE"){
                     AreaWrite areaWrite = transform.parent.GetComponent<AreaWrite>();
                     areaWrite.writeNewLineRight = false;
                     areaWrite.appendRight = "";

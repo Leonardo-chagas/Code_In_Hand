@@ -19,6 +19,8 @@ public class RunCode : MonoBehaviour
     public TMP_Text loseText;
 
     public ErrorListener errorListener = new ErrorListener();
+
+    public GameObject confetti;
     
     void Start()
     {
@@ -69,6 +71,7 @@ public class RunCode : MonoBehaviour
             ChallengeCard.instance.CheckCode();
             if(ChallengeCard.instance.hasStructure){
                 winScreen.SetActive(true);
+                confetti.SetActive(true);
                 completedChallenge = true;
             }
             else{

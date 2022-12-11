@@ -98,7 +98,7 @@ public class ChallengeCard : MonoBehaviour
                             }
                             line.Replace("\u200B", "");
                             result.Replace("\u200B", "");
-                            if(RemoveDiacritics(result).ToLower().Trim() == RemoveDiacritics(line).ToLower().Trim() &&
+                            if(RemoveDiacritics(result).ToLower().Trim().Replace(" ", "") == RemoveDiacritics(line).ToLower().Trim().Replace(" ", "") &&
                             (!string.IsNullOrEmpty(result) && !string.IsNullOrWhiteSpace(result)) &&
                             (!string.IsNullOrEmpty(line) && !string.IsNullOrWhiteSpace(line))){
                                 print("Deu match");
@@ -117,9 +117,9 @@ public class ChallengeCard : MonoBehaviour
             }
             //bloco que faz match se não tiver variável
             else{
+                int cont = 1;
                 foreach(string line in lines){
-                    int cont = 1;
-                    if(RemoveDiacritics(key).ToLower().Trim() == RemoveDiacritics(line).ToLower().Trim()){
+                    if(RemoveDiacritics(key).ToLower().Trim().Replace(" ", "") == RemoveDiacritics(line).ToLower().Trim().Replace(" ", "")){
                         structure[key] = cont;
                         break;
                     }
@@ -135,6 +135,7 @@ public class ChallengeCard : MonoBehaviour
         bool error = false;
         if(!structure.ContainsValue(0)){
             foreach(int val in structure.Values){
+                print(val);
                 if(val > baseValue){
                     baseValue = val;
                 }

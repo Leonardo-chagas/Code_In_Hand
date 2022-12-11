@@ -17,15 +17,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: cards.Array.size
-      value: 10
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: lines.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: lines.Array.data[0]
       value: VAR=5;
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[1]
+      value: IF VAR%2==0 {|IF 2%VAR==0 {|IF 0==VAR%2 {|IF 0==2%VAR {|IF VAR%2<1 {|IF
+        2%VAR<1 {|IF 1>VAR%2 {|IF 1>2%VAR {
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[2]
+      value: "PRINT(\"vari\xE1vel \xE9 par\");"
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: lines.Array.data[3]
+      value: ELSE {
       objectReference: {fileID: 0}
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: expectedOutput.Array.size
@@ -76,6 +89,14 @@ PrefabInstance:
       value: "vari\xE1vel \xE9 \xEDmpar"
       objectReference: {fileID: 0}
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[10].cardName
+      value: remainder card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[11].cardName
+      value: print card
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: cards.Array.data[0].cardAmount
       value: 3
       objectReference: {fileID: 0}
@@ -114,6 +135,14 @@ PrefabInstance:
     - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: cards.Array.data[9].cardAmount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[10].cardAmount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 238824285259167909, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
+      propertyPath: cards.Array.data[11].cardAmount
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3849591959125104577, guid: b1bbf401888ecb341a26e5af7c7f3234, type: 3}
       propertyPath: m_Name

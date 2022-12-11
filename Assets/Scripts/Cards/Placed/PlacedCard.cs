@@ -17,11 +17,9 @@ public class PlacedCard : MonoBehaviour, IPlaceable
 
     void Awake()
     {
-        inputField = inputCard.transform.GetChild(2).GetComponent<TMP_InputField>();
-        inputField.contentType = contentType;
-
         bigCardArea = GameObject.Find("BigCardArea").transform.GetChild(0);
         cardPoint = bigCardArea.GetChild(1);
+        
         foreach(Transform child in transform){
             if(child.name == "type"){
                 cardText = child.gameObject.GetComponent<TMP_Text>();
@@ -37,11 +35,17 @@ public class PlacedCard : MonoBehaviour, IPlaceable
             GameManager.instance.showAvailableVariables = true;
         else
             GameManager.instance.showAvailableVariables = false;
+
         bigCardArea.gameObject.SetActive(true);
         GameObject obj = Instantiate(inputCard);
+
+        inputField = obj.transform.GetChild(2).GetComponent<TMP_InputField>();
+        inputField.contentType = contentType;
+
         obj.transform.SetParent(cardPoint, false);
         obj.transform.position = cardPoint.position;
         InputCard card = obj.GetComponent<InputCard>();
+
         card.isVariable = isVariable;
         card.color = color;
         card.cardText = cardText;

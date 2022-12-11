@@ -2,8 +2,8 @@ desafio1|3|true|O desafio espera o resultado Hello World, entretanto a saída re
 desafio2|0|false|
 desafio3|0|false|
 desafio4|2|true|
-desafio5|0|false|
+desafio5|1|false|A estrutura do código não condiz com as especificações do desafio,
 desafio6|0|false|
-desafio7|12|false|
-desafio8|0|false|
+desafio7|22|true|A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,A estrutura do código não condiz com as especificações do desafio,
+desafio8|4|true|A estrutura do código não condiz com as especificações do desafio,A ordem da estrutura do código está incorreta,A ordem da estrutura do código está incorreta,
 desafio9|0|false|

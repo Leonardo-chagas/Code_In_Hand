@@ -27,6 +27,7 @@ public class InputCard : MonoBehaviour
         text.color = color;
         bigCardArea = GameObject.Find("BigCardArea").transform.GetChild(0).gameObject;
         if(inputField.contentType == TMP_InputField.ContentType.DecimalNumber){
+            print("carta é float");
             inputField.contentType = TMP_InputField.ContentType.Standard;
             inputField.onValueChanged.AddListener(delegate {FloatText();});
             isFloat = true;

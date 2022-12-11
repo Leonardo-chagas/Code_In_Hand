@@ -92,7 +92,7 @@ public class DragDrop : MonoBehaviour
     }
 
     void OnTriggerExit2D(Collider2D col){
-        if(col.gameObject.CompareTag("dropzone")){
+        if(col.gameObject.CompareTag("dropzone") && dropZone == col.transform){
             dropZone = null;
             dropZoneParent = null;
             droparea = null;
