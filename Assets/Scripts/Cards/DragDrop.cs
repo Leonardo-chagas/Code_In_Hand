@@ -10,7 +10,7 @@ public class DragDrop : MonoBehaviour
     private Vector3 startPosition;
     private Transform dropZone;
     private Transform dropZoneParent;
-    private Dropzone droparea;
+    [HideInInspector] public Dropzone droparea;
     private TMP_Text text;
     private RectTransform rectTransform;
     private GameObject mainCanvas;
@@ -64,6 +64,11 @@ public class DragDrop : MonoBehaviour
                 }
             }
             text.text = startText;
+
+            if(text.text == "IF " || text.text == "ELSE"){
+                transform.parent.transform.parent.GetChild(transform.parent.GetSiblingIndex()+1).GetComponent<CardRemover>()?.RemoveCards();
+                transform.parent.GetComponent<CardRemover>()?.RemoveCards();
+            }
         }
     }
 

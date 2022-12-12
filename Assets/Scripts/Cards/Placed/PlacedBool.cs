@@ -22,7 +22,7 @@ public class PlacedBool : MonoBehaviour, IPlaceable
     }
 
     public void PlaceCard(){
-        //GameManager.instance.showAvailableVariables = false;
+        GameManager.instance.showAvailableVariables = false;
         bigCardArea.gameObject.SetActive(true);
 
         GameObject card1 = Instantiate(inputCard);

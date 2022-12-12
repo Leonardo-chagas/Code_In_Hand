@@ -56,10 +56,11 @@ public class ChallengeSelect : MonoBehaviour
                     string[] currentLine = line.Split("|", System.StringSplitOptions.None);
                     if(currentLine[2] == "false"){
                         unlocked = false;
-                        image.color = new Color(image.color.r-0.5f, image.color.b-0.5f, image.color.g-0.5f, image.color.a);
+                        image.color = new Color(0.5f, 0.5f, 0.5f, image.color.a);
                     }
                     else{
                         unlocked = true;
+                        image.color = new Color(1, 1, 1, image.color.a);
                     }
                 }
             }
