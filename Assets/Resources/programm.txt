@@ -1,4 +1,6 @@
-x=2.5;
-y=3;
-PRINT(x*y);
+x=5;
+IF x>3 {
+PRINT("essa variável é maior que 3");
+
+}
 

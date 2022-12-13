@@ -173,7 +173,7 @@ public class ChallengeCard : MonoBehaviour
         outputContent = outputContent.TrimEnd();
 
         foreach(string output in expectedOutput){
-            if(outputContent == output){
+            if(RemoveDiacritics(outputContent).ToLower().Trim().Replace(" ", "") == RemoveDiacritics(output).ToLower().Trim().Replace(" ", "")){
                 hasOutput = true;
                 break;
             }

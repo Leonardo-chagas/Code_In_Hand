@@ -9,8 +9,8 @@ public class DragDrop : MonoBehaviour
     private Transform startParent;
     private Vector3 startPosition;
     private Transform dropZone;
-    private Transform dropZoneParent;
-    [HideInInspector] public Dropzone droparea;
+    [HideInInspector] public Transform dropZoneParent;
+    private Dropzone droparea;
     private TMP_Text text;
     private RectTransform rectTransform;
     private GameObject mainCanvas;

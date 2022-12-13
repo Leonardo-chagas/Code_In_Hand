@@ -14,9 +14,9 @@ public class PlacedIf : MonoBehaviour, IPlaceable
     }
 
     public void PlaceCard(){
-        droparea = GetComponent<DragDrop>().droparea.transform;
+        droparea = GetComponent<DragDrop>().dropZoneParent;
         GameObject obj = Instantiate(block);
-        obj.transform.SetParent(droparea, false);
-        obj.transform.SetSiblingIndex(transform.parent.GetSiblingIndex()+2);
+        obj.transform.SetParent(droparea.parent, false);
+        obj.transform.SetSiblingIndex(droparea.GetSiblingIndex()+2);
     }
 }

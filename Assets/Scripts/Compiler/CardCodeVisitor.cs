@@ -177,8 +177,6 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
     public override object? VisitIfBlock(CardCodeParser.IfBlockContext context)
     {
-        StreamWriter writer = new StreamWriter("Assets/Resources/info.txt");
-        writer.Write("visitou if");
         var line = context.Start.Line;
         var exp = Visit(context.expression());
         
@@ -190,17 +188,14 @@ public class CardCodeVisitor : CardCodeBaseVisitor<object?>
 
         if(IsTrue(exp, line)){
             //throw new Exception("passou pelo if");
-            writer.WriteLine("passou pelo if");
             Visit(context.block(0));
         }
         else{
             //throw new Exception("passou pelo else");
-            writer.WriteLine("passou pelo else");
             if(context.ELSE() != null){
                 Visit(context.block(1));
             }
         }
-        writer.Close();
         return null;
     }
 
