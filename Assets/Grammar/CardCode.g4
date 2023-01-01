@@ -8,13 +8,9 @@ statement: (assignment|functionCall) ';';
 
 functionCall: IDENTIFIER '(' (expression (',' expression)*)? ')';
 
-//ifBlock: 'if' expression block ('else' block)?;
 ifBlock: IF expression block (ELSE block)?;
 IF: 'IF';
 ELSE: 'ELSE';
-
-//printCall: 'print(' expression ')';
-//printCall: 'PRINT' expression;
 
 expression
     : constant                              #constantExpression
@@ -32,8 +28,6 @@ multOp: '*' | '/' | '%';
 addOp: '+' | '-';
 compareOp: '==' | '!=' | '>' | '<' | '>=' | '<=';
 boolOp: 'and' | 'or';
-
-//BOOL_OPERATOR: 'and' | 'or';
 
 constant: INTEGER | FLOAT | STRING | BOOL | NULL;
 

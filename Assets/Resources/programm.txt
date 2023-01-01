@@ -1,6 +1,0 @@
-x=5;
-IF x>3 {
-PRINT("essa variável é maior que 3");
-
-}
-
